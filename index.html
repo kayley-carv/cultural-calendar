@@ -9,35 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --bg:#F5F5F7;--surface:#FFFFFF;--surface2:#F0F0F5;--border:#E2E2EC;--border2:#CACAD8;
-  --text:#1A1A2E;--muted:#8888A8;--subtle:#AAA;
-  --doac:#E84E14;--ba:#00A88A;--wnt:#8B35D6;--tl:#0284C7;--hsr:#D4005A;
-  --cat-theme:#B07500;--cat-awareness:#C4336A;--cat-sports:#0F7A52;
-  --cat-music:#0369A1;--cat-industry:#9A5C00;--cat-film:#B91C1C;
-  --cat-retail:#5B21B6;
-}
+:root{--bg:#F5F5F7;--surface:#FFFFFF;--surface2:#F0F0F5;--border:#E2E2EC;--border2:#CACAD8;--text:#1A1A2E;--muted:#8888A8;--subtle:#AAA;--doac:#E84E14;--ba:#00A88A;--wnt:#8B35D6;--tl:#0284C7;--hsr:#D4005A;--cat-theme:#B07500;--cat-awareness:#C4336A;--cat-sports:#0F7A52;--cat-music:#0369A1;--cat-industry:#9A5C00;--cat-film:#B91C1C;--cat-retail:#5B21B6;}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow:hidden;}
-
-/* ── MOBILE HEADER (hidden on desktop) ── */
 .mobile-header{display:none;}
-
-/* ── SIDEBAR OVERLAY (mobile) ── */
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99;}
 .sidebar-overlay.active{display:block;}
 .app{display:flex;height:100vh;}
 .sidebar{width:240px;min-width:240px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
 .main{flex:1;overflow:hidden;display:flex;flex-direction:column;}
-
 .brand{padding:22px 20px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;letter-spacing:.04em;color:var(--text);}
 .brand-sub{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
-
-.source-badges{padding:8px 16px 10px;border-bottom:1px solid var(--border);flex-shrink:0;}
-.source-title{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
-.badges{display:flex;flex-wrap:wrap;gap:3px;}
-.badge{font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);}
-
 .months-section{flex:1;overflow-y:auto;padding:12px 10px;}
 .section-lbl{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:0 6px;margin-bottom:7px;}
 .month-btn{width:100%;background:none;border:none;color:var(--muted);cursor:pointer;text-align:left;padding:7px 10px;border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:400;transition:all .18s;display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;}
@@ -45,7 +27,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .month-btn.active{background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.03));color:var(--text);font-weight:600;border:1px solid var(--border2);}
 .month-btn .evt-count{font-size:10px;background:var(--surface2);color:var(--muted);padding:2px 7px;border-radius:10px;}
 .month-btn.active .evt-count{background:rgba(0,0,0,.08);color:var(--text);}
-
 .legend{padding:12px 14px 14px;border-top:1px solid var(--border);flex-shrink:0;}
 .legend-title{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
 .show-legend-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;cursor:pointer;padding:3px 4px;border-radius:5px;transition:background .15s;}
@@ -54,40 +35,31 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .show-pip{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0;}
 .show-legend-name{font-size:11px;color:var(--text);line-height:1.3;}
 .show-legend-host{font-size:10px;color:var(--muted);}
-
-/* Topic tooltip on hover */
 .show-legend-topics{font-size:9px;color:var(--subtle);display:none;margin-top:1px;line-height:1.4;}
 .show-legend-item:hover .show-legend-topics{display:block;}
-
 .top-bar{padding:20px 32px 0;flex-shrink:0;border-bottom:1px solid var(--border);}
 .month-hero{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:12px;}
 .month-display{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--text);}
 .month-display em{font-style:normal;opacity:.3;font-size:34px;margin-left:8px;}
 .event-total{text-align:right;color:var(--muted);font-size:12px;padding-bottom:4px;}
 .event-total strong{color:var(--text);font-size:20px;font-weight:500;display:block;}
-
 .themes-row{display:flex;flex-wrap:wrap;gap:5px;padding-bottom:12px;}
 .theme-pill{background:rgba(176,117,0,.08);border:1px solid rgba(176,117,0,.2);color:var(--cat-theme);font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;}
-
 .filter-bar{display:flex;gap:5px;flex-wrap:wrap;padding:9px 32px;border-bottom:1px solid var(--border);flex-shrink:0;align-items:center;}
 .filter-lbl{font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;}
 .cat-btn{background:none;border:1px solid var(--border2);color:var(--muted);cursor:pointer;padding:4px 11px;border-radius:20px;font-size:11px;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .18s;display:flex;align-items:center;gap:5px;}
 .cat-btn:hover{border-color:var(--text);color:var(--text);}
 .cat-btn.active{border-color:var(--text);color:var(--text);background:rgba(0,0,0,.07);font-weight:600;}
 .cat-dot{width:6px;height:6px;border-radius:50%;}
-
 .events-wrapper{flex:1;overflow-y:auto;padding:14px 32px 32px;}
 .events-list{display:flex;flex-direction:column;gap:5px;}
-
 .event-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;transition:all .18s;animation:slideIn .22s ease both;cursor:default;}
 .event-card:hover{background:var(--surface2);border-color:var(--border2);}
 @keyframes slideIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
-
 .evt-date{min-width:40px;text-align:center;flex-shrink:0;}
 .evt-date .d{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1;}
 .evt-date .m{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
 .evt-sep{width:1px;height:30px;background:var(--border);flex-shrink:0;}
-
 .evt-content{flex:1;min-width:0;}
 .evt-name{font-size:13px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:3px;}
 .evt-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
@@ -100,1813 +72,270 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .cat-tag.film{background:rgba(185,28,28,.1);color:var(--cat-film);border:1px solid rgba(185,28,28,.22);}
 .cat-tag.retail{background:rgba(91,33,182,.1);color:var(--cat-retail);border:1px solid rgba(91,33,182,.22);}
 .evt-span{font-size:10px;color:var(--muted);font-style:italic;}
-.evt-source{font-size:9px;color:var(--subtle);background:var(--surface2);padding:1px 5px;border-radius:5px;border:1px solid var(--border);}
-
-/* Why-tagged tooltip */
 .evt-why{display:none;font-size:9px;color:var(--muted);margin-top:3px;font-style:italic;}
 .event-card:hover .evt-why{display:block;}
-
 .evt-shows{display:flex;gap:4px;flex-shrink:0;margin-left:auto;}
-.show-pill{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;transition:transform .15s;cursor:default;position:relative;}
+.show-pill{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;transition:transform .15s;cursor:default;}
 .show-pill:hover{transform:scale(1.15);}
 .show-pill[data-show="DOAC"]{background:rgba(232,78,20,.12);color:var(--doac);border:1.5px solid rgba(232,78,20,.4);}
-.show-pill[data-show="BA"]  {background:rgba(0,168,138,.12);color:var(--ba);border:1.5px solid rgba(0,168,138,.4);}
-.show-pill[data-show="WNT"] {background:rgba(139,53,214,.12);color:var(--wnt);border:1.5px solid rgba(139,53,214,.4);}
-.show-pill[data-show="TL"]  {background:rgba(2,132,199,.12);color:var(--tl);border:1.5px solid rgba(2,132,199,.4);}
-.show-pill[data-show="HSR"] {background:rgba(212,0,90,.12);color:var(--hsr);border:1.5px solid rgba(212,0,90,.4);}
-
+.show-pill[data-show="BA"]{background:rgba(0,168,138,.12);color:var(--ba);border:1.5px solid rgba(0,168,138,.4);}
+.show-pill[data-show="WNT"]{background:rgba(139,53,214,.12);color:var(--wnt);border:1.5px solid rgba(139,53,214,.4);}
+.show-pill[data-show="TL"]{background:rgba(2,132,199,.12);color:var(--tl);border:1.5px solid rgba(2,132,199,.4);}
+.show-pill[data-show="HSR"]{background:rgba(212,0,90,.12);color:var(--hsr);border:1.5px solid rgba(212,0,90,.4);}
 .empty{text-align:center;padding:60px 20px;color:var(--muted);}
 .empty-icon{font-size:32px;margin-bottom:12px;opacity:.4;}
 .empty-text{font-size:13px;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
-
-/* ══════════════════════════════════════════
-   MOBILE RESPONSIVE — 768px and below
-   ══════════════════════════════════════════ */
-@media (max-width: 768px) {
-
-  /* Allow body to scroll on mobile */
-  html,body{height:auto;overflow:auto;}
-
-  .app{flex-direction:column;height:auto;min-height:100vh;}
-
-  /* Sidebar becomes a slide-in drawer */
-  .sidebar{
-    position:fixed;top:0;left:-280px;width:280px;height:100%;
-    z-index:100;transition:left .28s ease;
-    border-right:1px solid var(--border);
-    overflow-y:auto;
-  }
-  .sidebar.open{left:0;}
-
-  /* Mobile top header bar */
-  .mobile-header{
-    display:flex;align-items:center;justify-content:space-between;
-    background:var(--surface);border-bottom:1px solid var(--border);
-    padding:14px 18px;flex-shrink:0;position:sticky;top:0;z-index:50;
-  }
-  .mobile-brand{
-    font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;
-    letter-spacing:.04em;color:var(--text);
-  }
-  .mobile-nav{display:flex;align-items:center;gap:10px;}
-  .mobile-menu-btn{
-    background:none;border:1px solid var(--border2);border-radius:7px;
-    padding:6px 12px;font-size:11px;font-family:'DM Sans',sans-serif;
-    font-weight:600;color:var(--text);cursor:pointer;
-    display:flex;align-items:center;gap:5px;
-  }
-  .mobile-month-display{
-    font-size:13px;font-weight:600;color:var(--muted);
-  }
-
-  /* Main content takes full width */
-  .main{flex:1;overflow:visible;min-width:0;}
-
-  /* Top bar adjustments */
-  .top-bar{padding:16px 18px 0;}
-  .month-hero{margin-bottom:10px;}
-  .month-display{font-size:36px;}
-  .month-display em{font-size:24px;}
-  .event-total{font-size:11px;}
-  .event-total strong{font-size:16px;}
-
-  .themes-row{padding-bottom:10px;gap:4px;}
-  .theme-pill{font-size:9px;padding:2px 8px;}
-
-  /* Filter bar scrolls horizontally */
-  .filter-bar{
-    padding:8px 18px;
-    flex-wrap:nowrap;overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    gap:5px;
-    scrollbar-width:none;
-  }
-  .filter-bar::-webkit-scrollbar{display:none;}
-  .filter-lbl{white-space:nowrap;flex-shrink:0;}
-  .cat-btn{flex-shrink:0;white-space:nowrap;padding:4px 10px;}
-
-  /* Events list */
-  .events-wrapper{padding:12px 18px 40px;overflow:visible;}
-  .events-list{gap:6px;}
-
-  /* Event cards */
-  .event-card{padding:10px 12px;gap:10px;}
-  .evt-date .d{font-size:18px;}
-  .evt-date .m{font-size:8px;}
-  .evt-sep{height:26px;}
-  .evt-name{font-size:12px;}
-  .cat-tag{font-size:8px;padding:2px 6px;}
-  .evt-span{font-size:9px;}
-  .evt-source{font-size:8px;}
-
-  /* Show pills — slightly smaller */
-  .show-pill{width:22px;height:22px;font-size:7px;}
-
-  /* Hide the desktop sidebar brand/sources (shown in mobile header instead) */
-  .sidebar .brand{padding:18px 16px 12px;}
-  .sidebar .source-badges{display:none;}
+@media(max-width:768px){
+html,body{height:auto;overflow:auto;}
+.app{flex-direction:column;height:auto;min-height:100vh;}
+.sidebar{position:fixed;top:0;left:-280px;width:280px;height:100%;z-index:100;transition:left .28s ease;overflow-y:auto;}
+.sidebar.open{left:0;}
+.mobile-header{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-bottom:1px solid var(--border);padding:14px 18px;flex-shrink:0;position:sticky;top:0;z-index:50;}
+.mobile-brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;letter-spacing:.04em;color:var(--text);}
+.mobile-nav{display:flex;align-items:center;gap:10px;}
+.mobile-menu-btn{background:none;border:1px solid var(--border2);border-radius:7px;padding:6px 12px;font-size:11px;font-family:'DM Sans',sans-serif;font-weight:600;color:var(--text);cursor:pointer;}
+.mobile-month-display{font-size:13px;font-weight:600;color:var(--muted);}
+.main{flex:1;overflow:visible;}
+.top-bar{padding:16px 18px 0;}
+.month-display{font-size:36px;}
+.month-display em{font-size:24px;}
+.filter-bar{padding:8px 18px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.filter-bar::-webkit-scrollbar{display:none;}
+.cat-btn,.filter-lbl{flex-shrink:0;white-space:nowrap;}
+.events-wrapper{padding:12px 18px 40px;overflow:visible;}
+.show-pill{width:22px;height:22px;font-size:7px;}
 }
 </style>
 </head>
 <body>
-  <script>
-  (function() {
-    var password = "flightstory2026";
-    var input = prompt("Enter password to access this page:");
-    if (input !== password) {
-      document.documentElement.innerHTML = "<h2 style='font-family:sans-serif;padding:40px'>Access denied.</h2>";
-    }
-  })();
+<script>
+(function(){var pw="flightstory2026";var i=prompt("Enter password to access this page:");if(i!==pw){document.documentElement.innerHTML="<div style='font-family:sans-serif;padding:60px;text-align:center'><h2>Access denied.</h2></div>";}})();
 </script>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <div class="app">
-
-  <!-- MOBILE HEADER — only visible on mobile -->
-  <div class="mobile-header">
-    <div class="mobile-brand">FlightStory</div>
-    <div class="mobile-nav">
-      <span class="mobile-month-display" id="mobileMonthDisplay">January</span>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰ Months</button>
-    </div>
+<div class="mobile-header">
+  <div class="mobile-brand">FlightStory</div>
+  <div class="mobile-nav">
+    <span class="mobile-month-display" id="mobileMonthDisplay">January</span>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰ Months</button>
   </div>
-
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <div class="brand-name">FlightStory</div>
-      <div class="brand-sub">Cultural Calendar 2026</div>
-    </div>
-    <div class="source-badges">
-      <div class="source-title">Data Sources</div>
-      <div class="badges">
-        <span class="badge">UN.org</span><span class="badge">WHO</span><span class="badge">UNESCO</span>
-        <span class="badge">NHS</span><span class="badge">Mind.org</span><span class="badge">MHF</span>
-        <span class="badge">Olympics.com</span><span class="badge">BBC Sport</span><span class="badge">F1.com</span>
-        <span class="badge">Variety</span><span class="badge">IMDb</span><span class="badge">RT</span>
-        <span class="badge">Billboard</span><span class="badge">Ticketmaster</span><span class="badge">NME</span>
-        <span class="badge">BAFTA</span><span class="badge">Grammy.com</span>
-      </div>
-    </div>
-    <div class="months-section" id="monthNav">
-      <div class="section-lbl">Months</div>
-    </div>
-    <div class="legend">
-      <div class="legend-title">Shows — hover to see topics</div>
-      <div id="showLegend"></div>
-    </div>
-  </aside>
-
-  <main class="main">
-    <div class="top-bar">
-      <div class="month-hero">
-        <div class="month-display" id="monthDisplay">January <em>2026</em></div>
-        <div class="event-total"><strong id="evtCount">0</strong>events this month</div>
-      </div>
-      <div class="themes-row" id="themesRow"></div>
-    </div>
-    <div class="filter-bar">
-      <span class="filter-lbl">Filter</span>
-      <button class="cat-btn active" data-cat="all">All</button>
-      <button class="cat-btn" data-cat="theme"><span class="cat-dot" style="background:var(--cat-theme)"></span>Monthly Themes</button>
-      <button class="cat-btn" data-cat="awareness"><span class="cat-dot" style="background:var(--cat-awareness)"></span>Awareness</button>
-      <button class="cat-btn" data-cat="sports"><span class="cat-dot" style="background:var(--cat-sports)"></span>Sports</button>
-      <button class="cat-btn" data-cat="music"><span class="cat-dot" style="background:var(--cat-music)"></span>Music</button>
-      <button class="cat-btn" data-cat="industry"><span class="cat-dot" style="background:var(--cat-industry)"></span>Industry</button>
-      <button class="cat-btn" data-cat="film"><span class="cat-dot" style="background:var(--cat-film)"></span>Film</button>
-      <button class="cat-btn" data-cat="retail"><span class="cat-dot" style="background:var(--cat-retail)"></span>Retail</button>
-    </div>
-    <div class="events-wrapper">
-      <div class="events-list" id="eventsList"></div>
-    </div>
-  </main>
 </div>
-
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-name">FlightStory</div><div class="brand-sub">Cultural Calendar 2026</div></div>
+  <div class="months-section" id="monthNav"><div class="section-lbl">Months</div></div>
+  <div class="legend"><div class="legend-title">Shows — hover to see audience</div><div id="showLegend"></div></div>
+</aside>
+<main class="main">
+  <div class="top-bar">
+    <div class="month-hero">
+      <div class="month-display" id="monthDisplay">January <em>2026</em></div>
+      <div class="event-total"><strong id="evtCount">0</strong>events this month</div>
+    </div>
+    <div class="themes-row" id="themesRow"></div>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-lbl">Filter</span>
+    <button class="cat-btn active" data-cat="all">All</button>
+    <button class="cat-btn" data-cat="theme"><span class="cat-dot" style="background:var(--cat-theme)"></span>Monthly Themes</button>
+    <button class="cat-btn" data-cat="awareness"><span class="cat-dot" style="background:var(--cat-awareness)"></span>Awareness</button>
+    <button class="cat-btn" data-cat="sports"><span class="cat-dot" style="background:var(--cat-sports)"></span>Sports</button>
+    <button class="cat-btn" data-cat="music"><span class="cat-dot" style="background:var(--cat-music)"></span>Music</button>
+    <button class="cat-btn" data-cat="industry"><span class="cat-dot" style="background:var(--cat-industry)"></span>Industry</button>
+    <button class="cat-btn" data-cat="film"><span class="cat-dot" style="background:var(--cat-film)"></span>Film</button>
+    <button class="cat-btn" data-cat="retail"><span class="cat-dot" style="background:var(--cat-retail)"></span>Retail / Commercial</button>
+  </div>
+  <div class="events-wrapper"><div class="events-list" id="eventsList"></div></div>
+</main>
+</div>
 <script>
-// ─────────────────────────────────────────────
-//  SHOWS — with topic lists shown on hover
-// ─────────────────────────────────────────────
-const SHOWS = {
-  DOAC:{name:'Diary of a CEO',  host:'Steven Bartlett', color:'#E84E14', abbr:'DC',
-        topics:'Neuroscience · Business · Psychology · Sports Science · Exercise · Sex/Relationships · AI · Power · Fertility · Physical Health'},
-  BA:  {name:'Begin Again',     host:'Davina McCall',   color:'#00A88A', abbr:'BA',
-        topics:'Health & Wellness · Resilience · Parenting · Midlife · Addiction · Sex · Grief & Trauma · Brain Health · Life Story'},
-  WNT: {name:'We Need to Talk', host:'Paul Brunson',    color:'#8B35D6', abbr:'WT',
-        topics:'Sex · Relationships · Grief/Trauma · Love · Neuroscience · Dating · Status · Mental Health · Addiction · Life Story'},
-  TL:  {name:'The Line',        host:'Dr K. Holmes',    color:'#0284C7', abbr:'TL',
-        topics:'High Performance · Sports Science · Sleep · Nutrition · Mindset · Elite Athletes · Human Performance · Fitness'},
-  HSR: {name:'Hot Smart Rich',  host:'Maggie S. Reum',  color:'#D4005A', abbr:'HS',
-        topics:"Women's Empowerment · Business/Wealth · Power · Female Entrepreneurship · Culture · Creator Economy · Ambition · Capital/Investing"},
+const SHOWS={
+  DOAC:{name:'Diary of a CEO',host:'Steven Bartlett',color:'#E84E14',abbr:'DC',audience:'The Striver (22-34) · The Builder (28-42) · The Achiever (35-50) · The Curious Pro (24-38) · The Late Adopter (45-65+)'},
+  BA:{name:'Begin Again',host:'Davina McCall',color:'#00A88A',abbr:'BA',audience:'The Intentional Resetter · The Midlife Truth-Seeker · The Quiet Reinventor · UK growth priority · Themes: Love, Sex, Grief'},
+  WNT:{name:'We Need to Talk',host:'Paul C. Brunson',color:'#8B35D6',abbr:'WT',audience:'The Emotionally Curious (25-40) · The Cultural Processor (28-45) · The Self-Dev Adjacent (22-35) · US growth priority'},
+  TL:{name:'The Line',host:'Dr Kristen Holmes',color:'#0284C7',abbr:'TL',audience:'The Optimiser · The Believer · The Fan · US growth priority · 81% male'},
+  HSR:{name:'Hot Smart Rich',host:'Maggie Sellers Reum',color:'#D4005A',abbr:'HS',audience:'The Power-Curious Woman (18-24) · The Ambitious Operator (28-45) · The Culture-First Listener (21-32) · US growth priority'},
+};
+const CALENDAR={
+  jan:{label:'January',themes:['New Year Reset Season','Dry January','Veganuary','Q1 Advertiser Peak'],events:[
+    {e:'1 Jan',n:'New Year — The Reset Ritual',c:'awareness',s:['DOAC','HSR','TL','BA','WNT'],w:"DOAC: The Striver is compressing the distance between where he is and where he wants to be. Steven's 'why' lens on who people want to become. TL: The Optimiser builds the year's performance stack. The Believer sets the line they want to step over. HSR: She doesn't make resolutions. She makes declarations. BA: The Intentional Resetter chose this year deliberately. WNT: Paul's angle — what does a fresh start actually mean for how we connect with each other?"},
+    {e:'1 Jan',n:'Dry January — Brain Chemistry, Sleep and Performance',c:'awareness',s:['DOAC','TL','BA'],w:"DOAC: Neuroscience of alcohol on cognition and recovery — The Curious Pro wants the science. TL: The Optimiser tracks sleep and recovery data during a dry month. Dr Holmes' WHOOP angle is direct. BA: The Quiet Reinventor uses January as a private reset she hasn't announced to anyone."},
+    {e:'1 Jan',n:'Veganuary — Nutrition Science vs Ideology',c:'awareness',s:['DOAC','TL'],w:"DOAC: Steven's 'why' lens on what the evidence actually says. The Curious Pro wants the science stripped of ideology. TL: Nutrition as a performance input. The Optimiser wants the protocol, not the moral argument."},
+    {e:'15 Jan',n:'Australian Open — Elite Tennis Performance',c:'sports',s:['TL'],sp:'15 Jan–1 Feb',w:"TL: The Fan follows every Grand Slam. The Optimiser studies mental conditioning, match-day routines, and recovery protocols. Dr Holmes' background makes this the richest January event for performance science content."},
+    {e:'1 Jan',n:'Q1 Advertiser Peak — Health, Wellness and Self-Improvement',c:'retail',s:['DOAC','BA','TL','HSR','WNT'],w:'All shows: highest CPM rates of the year for health and self-improvement categories. The window to lock in annual partnerships.'},
+  ]},
+  feb:{label:'February',themes:['Black History Month (US/Canada)','LGBTQ+ History Month (UK)'],events:[
+    {e:'1 Feb',n:'Grammy Awards — The Business of Music',c:'music',s:['DOAC','HSR'],w:"DOAC: The Builder and Achiever want to understand who controls the IP, who got their deal, what the numbers say about the industry. HSR: Maggie decodes who won commercially, not just critically. The Ambitious Operator reads the Grammys as a power map."},
+    {e:'1 Feb',n:'Black History Month (US/Canada)',c:'theme',s:['HSR','WNT'],w:"HSR: Black female founders and investors through Maggie's real network. The Ambitious Operator wants receipts, not inspiration. WNT: Paul C. Brunson's identity, legacy, and love themes make this fully earned. The Emotionally Curious processes cultural identity honestly."},
+    {e:'6 Feb',n:'Winter Olympics — Milan/Cortina',c:'sports',s:['TL'],sp:'6–22 Feb',w:"TL: Two weeks of elite performance science content. Every sport surfaces different marginal gains. The Optimiser studies the protocols. The Fan has a deep cultural relationship with Olympic athletes. Dr Holmes' background makes this the richest content window of Q1."},
+    {e:'8 Feb',n:'Super Bowl — Sport, Business and Culture',c:'sports',s:['DOAC','HSR','TL'],w:"DOAC: The business of the Super Bowl — who made what, what the ad market reveals about the economy. The Builder and Striver follow closely. HSR: Maggie decodes the brand deals and cultural capital on display. The Culture-First Listener is watching. TL: Elite physical and mental preparation — how the best athletes peak for one day."},
+    {e:'14 Feb',n:"Valentine's Day — What We Actually Want From Each Other",c:'awareness',s:['WNT','BA'],w:"WNT: Paul's angle is always honest and uncomfortable. The Emotionally Curious uses this as a processing moment. The Cultural Processor wants to understand what the day reveals about relationships culturally. BA: The Midlife Truth-Seeker is asking harder questions about love at this stage. Love, sex, and grief are the three themes that resonate most with Davina's audience."},
+    {e:'22 Feb',n:'BAFTA Film Awards — Storytelling and British Cultural Power',c:'industry',s:['DOAC','BA'],w:"DOAC: The business of storytelling — IP deals, distribution power, studio economics. BA: The ceremony gathers many of Britain's most compelling begin-again stories. British Icons and Stiff-Upper-Lip Challengers are BA's best performing guest archetypes."},
+    {e:'28 Feb',n:'Brit Awards — UK Music Industry',c:'music',s:['DOAC'],w:'DOAC: Business of the UK music industry — who controls the masters, who is building versus riding a moment. The Builder wants the commercial lens.'},
+    {e:'Feb',n:'LGBTQ+ History Month (UK)',c:'theme',s:['WNT','BA'],w:"WNT: Paul's platform was built on inclusive conversation about love and identity. BA: Davina's audience is predominantly female and the show explicitly celebrates lives lived differently."},
+    {e:'7 Feb',n:"Valentine's Week — Relationship and Wellness Gifting Peak",c:'retail',s:['WNT','BA'],w:'WNT: Relationship and intimacy brand partnerships peak — highest demand of the year. BA: Wellness gifting for women in midlife transition.'},
+  ]},
+  mar:{label:'March',themes:["Women's History Month",'Endometriosis Awareness Month','Spring Performance Season'],events:[
+    {e:'8 Mar',n:"International Women's Day",c:'awareness',s:['HSR','BA','WNT','DOAC','TL'],w:"HSR: This is not a content obligation — it is the founding belief. The Ambitious Operator wants specifics: funding data, board representation numbers, Maggie's investor network. BA: The Intentional Resetter chose this year for herself. WNT: Paul amplifies women's voices credibly — The Cultural Processor expects a non-generic take. DOAC: The Achiever (54% female in that cohort) wants the power and authority conversation. TL: Dr Holmes is the only female host in the sports performance podcast category."},
+    {e:'15 Mar',n:'F1 Season Opener — Australian Grand Prix',c:'sports',s:['TL','DOAC'],w:"TL: The Fan and Optimiser follow F1 obsessively — the marginal gains culture is directly applicable. DOAC: The business of F1, the psychology of team dynamics, and what wins championships beyond the car."},
+    {e:'15 Mar',n:'Oscars — The Business of Hollywood',c:'industry',s:['DOAC'],w:"DOAC: Not the dresses. The IP deals, studio economics, and power structures. The Builder and Achiever want to understand how the industry actually works."},
+    {e:'26 Mar',n:'Equal Pay Day (US)',c:'awareness',s:['HSR'],w:"HSR: Maggie's angle is never protest — it is strategy. The gap closes when women build their own tables. The Ambitious Operator wants the VC funding data decoded as gossip."},
+    {e:'20 Mar',n:'Project Hail Mary — Ryan Gosling',c:'film',s:['TL','DOAC'],w:"TL: Science and problem-solving under extreme pressure. The Optimiser and Believer connect to the human performance story. DOAC: The Curious Pro follows science and curiosity-driven storytelling."},
+    {e:'Mar',n:"Women's History Month",c:'theme',s:['HSR','BA','WNT'],w:"HSR: The entire month is HSR territory. Maggie's full network, real stories, operational depth — not celebration content. BA: Women who began again are Women's History content. Davina's guests are often exactly these women. WNT: Paul surfaces the women whose stories are underrepresented — The Cultural Processor expects this."},
+    {e:'Mar',n:'Endometriosis Awareness Month',c:'theme',s:['BA','DOAC'],w:"BA: The Midlife Truth-Seeker and Intentional Resetter are at the right age for this to be personal. Davina's documented openness about her own health earns this topic. DOAC: The Late Adopter (56% female) arrived via health-related content — hormones and fertility are her entry point."},
+    {e:'22 Mar',n:"Mother's Day UK — Gifting Peak",c:'retail',s:['BA','WNT'],w:'BA: Wellness and midlife gifting peaks. WNT: Relationship and family experiences.'},
+    {e:'8 Mar',n:"IWD — Female Brand Partnership Peak",c:'retail',s:['HSR','BA','WNT'],w:'HSR: Single highest-demand day of the year for female-founder brand deals. BA: Female wellness brand partnerships. WNT: Empowerment and identity brand moments.'},
+  ]},
+  apr:{label:'April',themes:['Financial Literacy Month (US)','Stress Awareness Month','Marathon Season'],events:[
+    {e:'Apr',n:'Financial Literacy Month (US)',c:'theme',s:['HSR','DOAC'],w:"HSR: The Ambitious Operator wants real numbers, real portfolios, real investor talk — not financial literacy as a concept but as a practice. DOAC: The Builder and Achiever pressure-test their financial frameworks. The Curious Pro wants the mental models."},
+    {e:'15 Apr',n:'She Filed — Tax Day (US)',c:'awareness',s:['HSR'],w:"HSR: A high tax bill is proof of earnings. Maggie reframes Tax Day as a flex — your receipt for building something real. The Power-Curious Woman gets her first lesson in financial identity."},
+    {e:'9 Apr',n:'Masters Golf — Augusta',c:'sports',s:['TL','DOAC'],sp:'9–12 Apr',w:"TL: Mental performance under the most pressurised conditions in golf. The Fan and Optimiser follow closely. DOAC: The business and psychology of elite sport — how athletes perform when the stakes are highest."},
+    {e:'20 Apr',n:'Boston Marathon',c:'sports',s:['TL'],w:"TL: The Optimiser has likely trained for or dreamed of Boston. Elite endurance science is directly applicable to The Line's audience."},
+    {e:'26 Apr',n:'London Marathon',c:'sports',s:['TL','BA'],w:"TL: One of the six World Marathon Majors. Elite endurance science and training methodology. BA: The Intentional Resetter may have signed up for the marathon as her begin-again moment. Davina's own fitness story makes this personal and credible."},
+    {e:'19 Apr',n:'Coachella — Culture, Commerce and Creator Economy',c:'music',s:['DOAC','HSR'],sp:'19–21 Apr',w:"DOAC: The business of Coachella — who owns what, the festival economy, how brand partnerships work at scale. HSR: Maggie decodes who is building a brand versus performing one. The Culture-First Listener is watching which women are on the bill."},
+    {e:'23 Apr',n:'NFL Draft — Pittsburgh',c:'sports',s:['TL','DOAC'],sp:'23–25 Apr',w:"TL: Talent identification and human performance science — how the best scouts assess physical and mental potential. The Fan studies the Draft seriously. DOAC: The business of sport — how teams are built, what the economics look like."},
+    {e:'Apr',n:'Stress Awareness Month',c:'theme',s:['DOAC','TL','BA'],w:"DOAC: The neuroscience of stress — cortisol, performance, and decision-making. The Curious Pro wants evidence-based content. TL: Stress as a performance variable — the Optimiser wants practical tools. BA: The Quiet Reinventor is often in a low-grade stress she hasn't named yet. This month gives her the language."},
+  ]},
+  may:{label:'May',themes:['Mental Health Awareness Month (US)','Small Business Week (US)','Spring Events Season'],events:[
+    {e:'4 May',n:'Met Gala — Fashion Decoded as Business Intelligence',c:'industry',s:['HSR','DOAC'],w:"HSR: Maggie's The Room Report. Who funded whose look, who is building a brand versus riding a moment. The Culture-First Listener and Ambitious Operator both watch. Business gossip in a fashion frame — nobody else does this. DOAC: The business of fashion IP and cultural capital."},
+    {e:'4 May',n:'Own The Room — HSR Founder Dinner',c:'industry',s:['HSR'],w:"HSR: FlightStory-created event. While legacy fashion fills the Met, HSR convenes the women actually building. The room is the product that cannot be copied."},
+    {e:'10 May',n:"Mother's Day (US)",c:'awareness',s:['HSR','BA','WNT'],w:"HSR: Ambition and motherhood are not a trade-off. Maggie surfaces women who kept building while raising — real stories with receipts. BA: Davina's honest relationship with motherhood across life stages is an earned brand asset. WNT: Paul's fatherhood values make parenting conversations authentic and non-generic."},
+    {e:'11 May',n:'Mental Health Awareness Week (UK)',c:'awareness',s:['DOAC','BA','WNT','TL'],sp:'11–17 May',w:"DOAC: Neuroscience and psychology of mental health — evidence-based, not motivational. BA: The Quiet Reinventor is in a private process she hasn't named. This week gives her permission to surface it. WNT: Paul holds space for the hardest mental health conversations with more warmth and credibility than most. TL: Mental and physical performance are inseparable at elite level."},
+    {e:'25 May',n:'French Open — Clay Court Performance Science',c:'sports',s:['TL'],sp:'25 May–7 Jun',w:"TL: Clay court tennis demands distinct physical conditioning and mental adaptability. The Fan and Optimiser study every surface. Elite injury management and physical conditioning science."},
+    {e:'19 May',n:'Cannes Film Festival — Content Industry Economics',c:'industry',s:['DOAC'],sp:'19–30 May',w:"DOAC: The Achiever and Builder want to understand how global content deals work. Cannes is where IP gets bought and sold — that is Steven's lens."},
+    {e:'May',n:'Small Business Week (US)',c:'theme',s:['HSR','DOAC'],w:"HSR: Female entrepreneurship all month — Maggie's full network, real stories. The Ambitious Operator wants tactical depth. DOAC: The Builder wants real operational specifics, not celebration content."},
+    {e:'11 May',n:'Mental Health Awareness Week — Wellness Brand Peak',c:'retail',s:['DOAC','BA','WNT','TL'],w:'All four shows: highest-demand week of the year for wellness and mental health brand partnerships.'},
+    {e:'10 May',n:"Mother's Day US — Gifting Peak",c:'retail',s:['HSR','BA'],w:'HSR: Female consumer brand partnerships peak. BA: Wellness and midlife gifting window.'},
+  ]},
+  jun:{label:'June',themes:["Pride Month","Men's Mental Health Month",'World Cup Begins'],events:[
+    {e:'11 Jun',n:'FIFA World Cup 2026 Kicks Off',c:'sports',s:['TL','DOAC'],sp:'11 Jun–19 Jul',w:"TL: The biggest stage in world sport. Elite conditioning, mental performance, and marginal gains that decide tournaments. The Fan, Optimiser, and Believer are all watching. DOAC: The business of the World Cup — economics, sponsorship, player IP, and what running a national team reveals about leadership."},
+    {e:'1 Jun',n:'Pride Month',c:'theme',s:['WNT','HSR'],w:"WNT: Paul's show is built on inclusive conversation about love, identity, and relationships. Pride is not a content obligation for him — it is his audience. HSR: Hot, smart, and rich is intersectional or it is not hot, smart, and rich. Maggie's network includes LGBTQ+ founders and investors — real relationships, not performative allyship."},
+    {e:'Jun',n:"Men's Mental Health Month",c:'theme',s:['DOAC','WNT','TL'],w:"DOAC: Steven speaks to men who don't self-identify as mental health consumers. His personal story earns the conversation. WNT: Paul's show is built on conversations men usually avoid. TL: Physical and mental health are inseparable at elite level — Dr Holmes' 81% male audience makes this the most significant wellness moment of the year for The Line."},
+    {e:'19 Jun',n:'Juneteenth (US)',c:'awareness',s:['HSR','WNT'],w:"HSR: Black female founders building generational wealth — Maggie's real network, not performative coverage. WNT: Paul C. Brunson's identity, legacy, and love themes make this fully earned. Legacy is one of his three core content pillars."},
+    {e:'21 Jun',n:"Father's Day (UK and US)",c:'awareness',s:['DOAC','WNT','BA'],w:"DOAC: The psychology of what fathers pass down — The Striver is often examining this at his stage. Steven's own story makes it personal. WNT: Fatherhood is central to Paul's values and brand identity. This is his most personal annual content moment. BA: Davina's relationship with her father is part of her begin-again story."},
+    {e:'29 Jun',n:'Wimbledon Begins',c:'sports',s:['TL','DOAC'],sp:'29 Jun–12 Jul',w:"TL: The mental game at Wimbledon is as important as the physical. Pressure management, routine under scrutiny, recovery between matches — all Performance Translator territory. DOAC: The business and psychology of elite tennis — how players build brands and manage pressure."},
+    {e:'Jun',n:'Pride Month — LGBTQ+ Brand Partnership Window',c:'retail',s:['WNT','HSR'],w:'WNT: LGBTQ+ relationship and community brand partnerships peak. HSR: Female and LGBTQ+ brand partners.'},
+  ]},
+  jul:{label:'July',themes:['World Cup Finals Month','Wimbledon Finals Week'],events:[
+    {e:'19 Jul',n:'FIFA World Cup Final — New York',c:'sports',s:['TL','DOAC'],w:"TL: The single biggest performance science content moment of the year. Every aspect of elite preparation is on display simultaneously. DOAC: The business of the final — global audience economics, player legacy, sponsorship at scale."},
+    {e:'12 Jul',n:'Wimbledon Finals',c:'sports',s:['TL','DOAC'],w:"TL: Mental performance at a Grand Slam final is The Line's case study in pressure management. DOAC: How humans perform at the absolute limit of their capability."},
+    {e:'4 Jul',n:'Independence Day (US)',c:'awareness',s:['HSR'],w:"HSR: US market moment. The Power-Curious Woman in New York and LA is in her summer stride. July is when the summer ambition arc — set at Memorial Day — reaches its midpoint."},
+    {e:'4 Jul',n:'Tour de France',c:'sports',s:['TL'],sp:'4–26 Jul',w:"TL: The most data-rich sporting event in the world. Marginal gains, nutrition science, and elite endurance are The Line's core. Three weeks of daily performance science content."},
+    {e:'14 Jul',n:'Amazon Prime Day',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:"All shows: major e-commerce window for products aligned with each show's world."},
+  ]},
+  aug:{label:'August',themes:['Black Business Month (US)','Edinburgh Festival Season','Back to Business'],events:[
+    {e:'Aug',n:'Black Business Month (US)',c:'theme',s:['HSR','DOAC'],w:"HSR: Black female founders and wealth builders — the receipts and the strategy. Maggie's network makes this real. The Ambitious Operator wants the commercial story. DOAC: Business and entrepreneurship through the lens of people who built without the default advantages."},
+    {e:'26 Aug',n:"Women's Equality Day (US)",c:'awareness',s:['HSR'],w:"HSR: The 19th Amendment anniversary. Maggie's angle is never protest — it's progress. What the ambitious women of 2026 have built since the vote. The Ambitious Operator wants data, not sentiment."},
+    {e:'7 Aug',n:'Edinburgh Festival Season',c:'industry',s:['DOAC','BA'],sp:'Aug',w:"DOAC: The business of live performance and storytelling at scale. BA: The Festival surfaces Britain's most compelling begin-again voices — comedians and performers who have reinvented. Davina's access to these guests is a direct editorial asset."},
+    {e:'31 Aug',n:'US Open Tennis Begins',c:'sports',s:['TL'],sp:'31 Aug–13 Sep',w:"TL: The final Grand Slam of the year. Late-season physical conditioning and psychological resilience — how athletes maintain performance across a long season. The Fan and Optimiser follow closely."},
+    {e:'Aug',n:'Back to Business — Courses and Self-Improvement Peak',c:'retail',s:['DOAC','TL','HSR'],w:'DOAC: Books and courses peak acquisition window. TL: Performance subscriptions and WHOOP. HSR: Investing courses and business tools.'},
+  ]},
+  sep:{label:'September',themes:['The Real New Year for Ambitious Women','NYFW / Fashion Month','NFL Season Launch'],events:[
+    {e:'11 Sep',n:'New York Fashion Week (September)',c:'industry',s:['HSR'],w:"HSR: September is the real new year for ambitious women and HSR owns it. Maggie decodes NYFW as business intelligence — the collections that matter commercially are never the ones that make the front page. The Culture-First Listener follows fashion. The Ambitious Operator reads it as investment data."},
+    {e:'9 Sep',n:'NFL Season Opener',c:'sports',s:['TL','DOAC'],sp:'Sep–Jan',w:"TL: The NFL season launch is the biggest performance science moment in the US. The Fan, Optimiser, and Believer all engage from week one. Dr Holmes' US positioning makes this the most important recurring sporting event on the calendar for growth. DOAC: The business of the NFL — player contracts, team economics, coaching structures."},
+    {e:'10 Sep',n:'World Suicide Prevention Day',c:'awareness',s:['WNT','BA','DOAC'],w:"WNT: Paul holds space for this with more credibility than almost anyone in the podcast space. The Emotionally Curious trusts him on the hardest topics. BA: The Quiet Reinventor may be in private distress she hasn't named — this day gives her language and company. DOAC: Steven's own mental health story makes this earned content."},
+    {e:'4 Sep',n:'World Sexual Health Day',c:'awareness',s:['WNT','BA'],w:"WNT: Sex and relationships are core to Paul's show. The Emotionally Curious processes this honestly. BA: Davina's documented openness about sex in midlife is one of the show's most distinctive brand assets."},
+    {e:'26 Sep',n:'AFL Grand Final — Melbourne',c:'sports',s:['TL'],w:"TL: The biggest domestic sporting event in Australia — significant for the Australian audience segment. The Fan and Optimiser in that market follow closely."},
+    {e:'Sep',n:'Emmy Awards',c:'industry',s:['DOAC','WNT'],w:"DOAC: The business of television — IP ownership, streaming economics, talent deals. WNT: Paul's world overlaps directly with pop culture and reality TV. The Emmys shape the content he covers. The Cultural Processor expects a substantive take."},
+    {e:'Sep',n:'Back to Work — Courses and Subscriptions Peak',c:'retail',s:['DOAC','TL','HSR','WNT'],w:'DOAC: Books and courses peak. TL: Performance subscriptions. HSR: Investing and business tools. WNT: Community and relationship products.'},
+    {e:'Sep',n:'Q4 Commercial Planning — Final Brand Partnership Window',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:'All shows: final window to secure Q4 brand partnerships before budgets close for the year.'},
+  ]},
+  oct:{label:'October',themes:['Black History Month (UK)','Breast Cancer Awareness Month','ADHD Awareness Month',"Women's Small Business Month (US)"],events:[
+    {e:'Oct',n:'Black History Month (UK)',c:'theme',s:['WNT','DOAC'],w:"WNT: Paul C. Brunson's cultural fluency and identity themes make this fully earned. The Cultural Processor expects a non-generic take — Paul's lens on legacy, language, and love is the right one. DOAC: Business and power stories that mainstream business content overlooks."},
+    {e:'Oct',n:'Breast Cancer Awareness Month',c:'theme',s:['BA','DOAC'],w:"BA: One of the most significant health awareness months for Davina's audience. The Midlife Truth-Seeker is at exactly the right age for this to feel personal. Davina's health openness earns this every year. DOAC: The science of hormones and physical health — The Late Adopter arrived through exactly this kind of content."},
+    {e:'Oct',n:'ADHD Awareness Month',c:'theme',s:['DOAC','TL','BA'],w:"DOAC: A significant cohort of Strivers and Builders suspect ADHD is relevant to their experience. Steven's neuroscience lens makes this credible. TL: Cognitive performance and executive function science — The Optimiser wants to understand how ADHD intersects with peak performance. BA: The Midlife Truth-Seeker is increasingly being diagnosed at this life stage — diagnosis in midlife is a begin-again moment."},
+    {e:'10 Oct',n:'World Mental Health Day',c:'awareness',s:['DOAC','BA','WNT','TL','HSR'],w:"DOAC: Evidence-based psychology — The Curious Pro wants the science, not the sentiment. BA: The Quiet Reinventor may be in a private process she hasn't named — this day is her permission. WNT: Paul's community expects honest, uncomfortable conversation. TL: Mental performance is physical performance — Dr Holmes' position on this is distinctive and credible. HSR: The Ambitious Operator's mental health is undercovered in business media."},
+    {e:'11 Oct',n:"International Day of the Girl",c:'awareness',s:['HSR'],w:"HSR: The Culture-First Listener is the youngest HSR segment. HSR exists to show her what hot, smart, and rich looks like before she has the vocabulary for her own ambition."},
+    {e:'18 Oct',n:'World Menopause Day',c:'awareness',s:['BA','DOAC'],w:"BA: The Midlife Truth-Seeker is at exactly this life stage. Davina's documented openness about perimenopause is one of Begin Again's most credible brand assets — she led this conversation publicly years before it became mainstream. DOAC: The science of hormones and physical health."},
+    {e:'Oct',n:"National Women's Small Business Month (US)",c:'theme',s:['HSR'],w:"HSR: The entire month is Maggie's territory. The Ambitious Operator wants tactical depth — funding sources, investor conversations, operational specifics. Not a celebration. A resource."},
+    {e:'Oct',n:'Pre-Christmas Brand Deals — Q4 Peak',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:'All shows: Q4 is the highest CPM quarter of the year across all categories.'},
+  ]},
+  nov:{label:'November',themes:["Movember — Men's Health",'National Entrepreneurship Month (US)'],events:[
+    {e:'Nov',n:"Movember — Men's Health Month",c:'theme',s:['DOAC','WNT','TL'],w:"DOAC: Steven speaks to men who don't self-identify as mental health consumers. His personal story earns the conversation. WNT: Paul's show is built on conversations men usually avoid. TL: The Line is 81% male — this is the most significant wellness moment of the year for the show. Dr Holmes' scientific framework makes it actionable."},
+    {e:'Nov',n:'National Entrepreneurship Month (US)',c:'theme',s:['HSR','DOAC'],w:"HSR: Female entrepreneurship all month — Maggie's full network, real stories, operational depth. DOAC: The Builder and Striver want the founding stories that are honest about what it actually costs."},
+    {e:'19 Nov',n:"International Men's Day",c:'awareness',s:['DOAC','WNT','TL'],w:"DOAC: The conversation men need to have but rarely do publicly — Steven earns it through his own story. WNT: Paul holds space for male vulnerability more skillfully than almost any other host in the space. TL: Physical and mental health parity for men — Dr Holmes' scientific framework makes it actionable."},
+    {e:'25 Nov',n:"International Day to End Violence Against Women",c:'awareness',s:['HSR','WNT','BA'],w:"HSR: Safety is power. Maggie's network gives her access to the women making change rather than describing the problem. WNT: Paul's approach to difficult conversations makes this credible. BA: The Intentional Resetter may have made her begin-again decision because of this — Davina's warmth earns the topic."},
+    {e:'Nov',n:'F1 Season Finale',c:'sports',s:['TL','DOAC'],w:"TL: Season-end performance analysis — the marginal gains that decided the championship. The Fan studies what the winner did differently. DOAC: The business of F1 over a full season."},
+    {e:'27 Nov',n:'Black Friday',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:'All shows: single biggest retail day of the year.'},
+    {e:'30 Nov',n:'Cyber Monday — Digital Products and Subscriptions Peak',c:'retail',s:['DOAC','BA','TL','HSR','WNT'],w:'DOAC: Courses and digital products. BA: Wellness apps and subscriptions. TL: WHOOP subscriptions. HSR: Investing courses. WNT: Community and relationship products.'},
+    {e:'Nov',n:'Christmas Campaign Season — Q4 Peak',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:'All shows: highest CPM rates of the year across all categories.'},
+  ]},
+  dec:{label:'December',themes:['Year-End Reflection Season','Gift Guide Season','Begin Again Season'],events:[
+    {e:'25 Dec',n:'Christmas and Year-End Reflection',c:'awareness',s:['BA','WNT','DOAC'],w:"BA: The Intentional Resetter uses Christmas as a check-in against the year's intention. The Quiet Reinventor is still processing what shifted. Davina's honest Christmas content consistently outperforms everything else she posts. WNT: Paul's love and legacy themes land hardest at year-end. DOAC: The Achiever is already planning the next chapter. The Late Adopter is reflecting on what actually mattered."},
+    {e:'31 Dec',n:"New Year's Eve — She Makes Declarations, Not Resolutions",c:'awareness',s:['HSR','BA'],w:"HSR: She doesn't make resolutions. She makes declarations. HSR owns that distinction at midnight. BA: The year she just had is the proof. The Intentional Resetter can name what she built. This is the moment the show was made for."},
+    {e:'18 Dec',n:'Avengers: Doomsday — Robert Downey Jr.',c:'film',s:['DOAC'],w:"DOAC: Power, authority, and the psychology of leadership at the limit. The Striver and Builder are in the cinema on opening weekend."},
+    {e:'Dec',n:'Year-End Podcast Charts and Industry Reviews',c:'industry',s:['DOAC','HSR','BA','WNT','TL'],w:'All shows: year-end charts are a distribution moment. Every show that performs well in December builds into January discovery.'},
+    {e:'Dec',n:'Christmas Gifting Peak',c:'retail',s:['DOAC','BA','WNT','TL','HSR'],w:'All shows: biggest gifting window of the year.'},
+    {e:'26 Dec',n:'Boxing Day Sales (UK)',c:'retail',s:['DOAC','BA','TL'],w:'DOAC: Courses and books post-Christmas push. BA: Wellness products. TL: WHOOP and performance gear.'},
+    {e:'Dec',n:'New Year Planning — Seed January Campaigns Now',c:'retail',s:['DOAC','TL','HSR','WNT','BA'],w:"All shows: December is where January product campaigns are seeded. The highest-converting audiences are already in planning mode before the new year hits."},
+  ]},
 };
 
-// ─────────────────────────────────────────────
-//  RELEVANCY LOGIC
-//  s: shows tagged, w: why each show is tagged
-// ─────────────────────────────────────────────
-
-const CALENDAR = {
-  jan:{
-    label:'January',
-    themes:["New Year / New Beginnings","Dry January","Veganuary","Cervical Cancer Prevention Month (UK)","Thyroid Awareness Month"],
-    events:[
-      {e:'1 Jan', n:"New Year's Day",
-       c:'awareness', src:'UN',
-       s:['DOAC','BA','WNT','HSR','TL'],
-       w:'DOAC: mindset/goal-setting · BA: renewal/resilience · WNT: relationship reset · HSR: ambition/new year · TL: performance planning'},
-
-      {e:'1 Jan', n:'Veganuary Begins',
-       c:'awareness', src:'Veganuary.com',
-       s:['DOAC','BA','TL'],
-       w:'DOAC: physical health · BA: health & wellness · TL: nutrition/performance'},
-
-      {e:'1 Jan', n:'Dry January',
-       c:'awareness', src:'Alcohol Change UK',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: physical health/psychology · BA: addiction/wellness · WNT: addiction/mental health'},
-
-      {e:'12 Jan', n:'Cervical Cancer Prevention Week (UK)',
-       c:'awareness', src:"Jo's Cervical Cancer Trust", sp:'12–18 Jan',
-       s:['BA','WNT'],
-       w:"BA: health & wellness/women's health · WNT: women's health/relationships"},
-
-      {e:'15 Jan', n:'Australian Open Tennis',
-       c:'sports', src:'Olympics.com', sp:'15 Jan – 1 Feb',
-       s:['TL','DOAC'],
-       w:'TL: elite sport/performance · DOAC: sports science'},
-
-      {e:'19 Jan', n:'Blue Monday — Mental Health Awareness Day',
-       c:'awareness', src:'Mind.org / MindWell',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: psychology/neuroscience · BA: resilience/brain health · WNT: mental health'},
-
-      {e:'19 Jan', n:'Health Information Week (UK)',
-       c:'awareness', src:'NHS Employers', sp:'19–25 Jan',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: physical health · BA: health & wellness · WNT: mental health'},
-
-      {e:'19 Jan', n:'Martin Luther King Jr. Day (US)',
-       c:'awareness', src:'UN',
-       s:['HSR','WNT'],
-       w:'HSR: power/activism/culture · WNT: life story/status/activism'},
-
-      {e:'27 Jan', n:'Holocaust Memorial Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: grief & trauma · WNT: grief/life story'},
-
-      {e:'Jan', n:'Thyroid Awareness Month',
-       c:'theme', src:'NHS / BTA',
-       s:['BA'],
-       w:'BA: health & wellness/midlife · DOAC: hormones/fertility/physical health'},
-
-      // ── RETAIL ──
-      {e:'1 Jan', n:"January Sales — UK Retail Peak",
-       c:'retail', src:'Retail Economics',
-       s:['DOAC','BA','TL','HSR','WNT'],
-       w:'DOAC: books/courses push · BA: wellness products · TL: performance gear/WHOOP · HSR: investing tools/subscriptions · WNT: relationship products'},
-
-      {e:'Jan', n:"Q1 Advertiser Peak — Health & Wellness Brands",
-       c:'retail', src:'IAB / Nielsen',
-       s:['DOAC','BA','TL','WNT','HSR'],
-       w:'Highest CPM window of year for health, wellness & self-improvement advertisers across all shows'},
-
-      {e:'Jan', n:"New Year Fitness & Supplement Push",
-       c:'retail', src:'Retail Economics / Mintel',
-       s:['DOAC','BA','TL'],
-       w:'DOAC: supplements/fitness products · BA: wellness products · TL: WHOOP/performance gear — peak new-customer acquisition window'},
-
-      {e:'Jan', n:"Veganuary — Plant-Based & Supplement Brands",
-       c:'retail', src:'Veganuary.com / Mintel',
-       s:['DOAC','BA','TL'],
-       w:'DOAC: health products · BA: wellness/nutrition brands · TL: nutrition/performance supplements'},
-    ]
-  },
-
-  feb:{
-    label:'February',
-    themes:["Black History Month (US/Canada)","Heart Health Month","LGBTQ+ History Month (UK)","Children's Mental Health Week"],
-    events:[
-      {e:'1 Feb', n:'Grammy Awards 68th — Los Angeles',
-       c:'music', src:'Grammy.com',
-       s:['DOAC'],
-       w:'DOAC: business of the music industry'},
-
-      {e:'1 Feb', n:'Black History Month begins (US/Canada)',
-       c:'awareness', src:'UN / Brandwatch',
-       s:['HSR','WNT'],
-       w:'HSR: power/culture · WNT: status/life story'},
-
-      {e:'2 Feb', n:'World Wetlands Day — UN/UNESCO',
-       c:'awareness', src:'UN.org',
-       s:['BA'],
-       w:'BA: health & wellness / broader life topics'},
-
-      {e:'4 Feb', n:'World Cancer Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: health & wellness/grief & trauma · WNT: grief/life story · DOAC: physical health'},
-
-      {e:'5 Feb', n:'Time to Talk Day (UK Mental Health)',
-       c:'awareness', src:'Mind.org',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: psychology · BA: resilience/brain health · WNT: mental health'},
-
-      {e:'6 Feb', n:'Winter Olympics Opening — Milan–Cortina',
-       c:'sports', src:'Olympics.com', sp:'6–22 Feb',
-       s:['TL','DOAC'],
-       w:'TL: elite athletes/human performance · DOAC: sports science/exercise'},
-
-      {e:'6 Feb', n:"International Day of Zero Tolerance for FGM — UN/WHO",
-       c:'awareness', src:'UN.org / WHO',
-       s:['WNT','HSR'],
-       w:"WNT: women\'s wellbeing/trauma · HSR: women\'s empowerment"},
-
-      {e:'8 Feb', n:"Super Bowl LX — Levi's Stadium, Santa Clara",
-       c:'sports', src:'Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite sport · DOAC: sports science/psychology of winning'},
-
-      {e:'9 Feb', n:"Children's Mental Health Week (UK)",
-       c:'awareness', src:'Place2Be / Mind UK', sp:'9–15 Feb',
-       s:['BA','WNT'],
-       w:'BA: parenting/resilience · WNT: life story/mental health'},
-
-      {e:'11 Feb', n:"Int'l Day of Women & Girls in Science — UN",
-       c:'awareness', src:'UN.org / UNESCO',
-       s:['HSR','TL'],
-       w:'HSR: female empowerment/power · TL: science/human performance'},
-
-      {e:'14 Feb', n:"Valentine's Day",
-       c:'awareness', src:'daysoftheyear.com',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: love/relationships/dating · BA: sex/relationships · DOAC: sex/relationships'},
-
-      {e:'17 Feb', n:'Florence + the Machine — UK Arena Tour',
-       c:'music', src:'Ticketmaster UK', sp:'Feb–Aug',
-       s:['BA'],
-       w:'BA: resilience/grief & trauma — her work runs through loss, trauma and emotional intensity'},
-
-      {e:'17 Feb', n:'RAYE — UK Arena Tour',
-       c:'music', src:'Ticketmaster UK', sp:'17–27 Feb',
-       s:['BA'],
-       w:'BA: resilience/life story — her story of reclaiming her voice after industry exploitation'},
-
-      {e:'20 Feb', n:'World Day of Social Justice — UN',
-       c:'awareness', src:'UN.org',
-       s:['HSR','WNT'],
-       w:'HSR: power/status · WNT: status/life story'},
-
-      {e:'21 Feb', n:'International Mother Language Day — UNESCO',
-       c:'awareness', src:'UNESCO',
-       s:['BA','WNT'],
-       w:'BA: life story/identity · WNT: life story/cultural identity'},
-
-      {e:'22 Feb', n:'BAFTA Film Awards — Royal Festival Hall, London',
-       c:'industry', src:'BAFTA.org',
-       s:['DOAC'],
-       w:'DOAC: business of the media/entertainment industry'},
-
-      {e:'22 Feb', n:'Winter Olympics Closing Ceremony',
-       c:'sports', src:'Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports science'},
-
-      {e:'23 Feb', n:'Eating Disorders Awareness Week',
-       c:'awareness', src:'BEAT / Mental Health UK', sp:'23 Feb – 1 Mar',
-       s:['BA','WNT','DOAC'],
-       w:'BA: addiction/health/midlife · WNT: mental health/addiction · DOAC: psychology/physical health'},
-
-      {e:'28 Feb', n:'Brit Awards 2026',
-       c:'music', src:'BRITs / Billboard',
-       s:['DOAC'],
-       w:'DOAC: business of the music industry'},
-
-      {e:'Feb', n:'LGBTQ+ History Month (UK)',
-       c:'theme', src:'LGBT+ History Month UK',
-       s:['WNT','BA'],
-       w:'WNT: relationships/identity/life story · BA: life story/resilience — highly relevant to BA\'s predominantly female audience'},
-
-      {e:'Feb', n:'Rare Disease Day (28 Feb)',
-       c:'awareness', src:'rarediseaseday.org',
-       s:['BA'],
-       w:'BA: health & wellness · DOAC: physical health/neuroscience'},
-
-      // ── RETAIL ──
-      {e:'7 Feb', n:"Valentine's Week — Gifting Peak (UK £1.4bn)",
-       c:'retail', src:'Retail Economics / Mintel',
-       s:['WNT','BA','HSR'],
-       w:"WNT: relationship/dating products — peak window · BA: intimacy/wellness products · HSR: female gifting culture"},
-
-      {e:'Feb', n:"Super Bowl Brand Sponsorship Window",
-       c:'retail', src:'IAB / Nielsen',
-       s:['TL','DOAC'],
-       w:'TL: sports/performance brand partnerships · DOAC: business sponsorships'},
-
-      {e:'Feb', n:"Grammy & Brit Awards — Music Brand Partnerships",
-       c:'retail', src:'Billboard / IAB',
-       s:[],
-       w:''},
-
-      {e:'Feb', n:"Winter Olympics — Sports & Performance Brand Window",
-       c:'retail', src:'Olympics.com / IAB',
-       s:['TL','DOAC'],
-       w:'TL: WHOOP/performance gear — peak brand partnership window · DOAC: sports supplement brands'},
-    ]
-  },
-
-  mar:{
-    label:'March',
-    themes:["Women's History Month (Global)",'Endometriosis Awareness Month','Neurodiversity Celebration Week','Self-Injury Awareness Month'],
-    events:[
-      {e:'1 Mar', n:'Zero Discrimination Day — UNAIDS',
-       c:'awareness', src:'UN.org / UNAIDS',
-       s:['WNT','HSR'],
-       w:'WNT: equality/life story · HSR: power/empowerment'},
-
-      {e:'1 Mar', n:'Self-Injury Awareness Day',
-       c:'awareness', src:'Mind / Mental Health UK',
-       s:['WNT','BA'],
-       w:'WNT: mental health/addiction/trauma · BA: addiction/grief & trauma'},
-
-      {e:'3 Mar', n:'World Wildlife Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA'],
-       w:'BA: broader wellness/life values'},
-
-      {e:'5 Mar', n:'GLAAD Media Awards',
-       c:'industry', src:'GLAAD / UPI',
-       s:['WNT'],
-       w:'WNT: relationships/identity'},
-
-      {e:'8 Mar', n:"International Women's Day — UN",
-       c:'awareness', src:'UN.org',
-       s:['DOAC','BA','WNT','HSR','TL'],
-       w:'DOAC: power/authority · BA: resilience/life story — women overcoming barriers · WNT: status/empowerment · HSR: core mission · TL: female high performers'},
-
-      {e:'12 Mar', n:'University Mental Health Day (UK)',
-       c:'awareness', src:'Student Minds',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health · BA: resilience/brain health · DOAC: psychology/neuroscience'},
-
-      {e:'13 Mar', n:'World Sleep Day',
-       c:'awareness', src:'World Sleep Society',
-       s:['DOAC','TL','BA'],
-       w:'DOAC: neuroscience/physical health · TL: sleep science/performance · BA: brain health/wellness'},
-
-            {e:'15 Mar', n:'March Madness — NCAA Basketball Tournament',
-       c:'sports', src:'NCAA.com / CBS Sports', sp:'15 Mar – 6 Apr · Selection Sun 15 Mar, Final Four Indianapolis 4–6 Apr',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset — the pressure of single-elimination sport is a masterclass in mental performance · DOAC: sports psychology/business of sport — one of the most watched US sporting events'},
-
-{e:'15 Mar', n:'F1 Season Opener — Australian Grand Prix',
-       c:'sports', src:'Formula1.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset · DOAC: sports science/power/authority'},
-
-      {e:'15 Mar', n:'Oscars — 98th Academy Awards',
-       c:'industry', src:'Oscars.org / UPI',
-       s:['DOAC'],
-       w:'DOAC: power/authority — business of entertainment'},
-
-      {e:'17 Mar', n:"St. Patrick's Day",
-       c:'awareness', src:'daysoftheyear.com',
-       s:[],
-       w:''},
-
-      {e:'20 Mar', n:'Eid al-Fitr',
-       c:'awareness', src:'UN.org',
-       s:['DOAC','WNT','BA'],
-       w:'DOAC: religion · WNT: life story/community · BA: life story/community'},
-
-      {e:'20 Mar', n:'International Day of Happiness — UN',
-       c:'awareness', src:'UN.org',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'DOAC: psychology · BA: resilience · WNT: mental health · TL: performance mindset · HSR: wellbeing/ambition'},
-
-      {e:'21 Mar', n:'World Down Syndrome Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: health/parenting · WNT: life story/mental health'},
-
-      {e:'21 Mar', n:"Int'l Day for Elimination of Racial Discrimination — UN",
-       c:'awareness', src:'UN.org',
-       s:['HSR','WNT'],
-       w:'HSR: power/culture · WNT: status/life story'},
-
-      {e:'21 Mar', n:'World Poetry Day — UNESCO',
-       c:'awareness', src:'UNESCO',
-       s:['BA','WNT'],
-       w:'BA: life story/creativity · WNT: life story/expression'},
-
-      {e:'22 Mar', n:'World Water Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['TL','BA'],
-       w:'TL: hydration/performance science · BA: health & wellness'},
-
-      {e:'24 Mar', n:'World Tuberculosis Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','DOAC'],
-       w:'BA: health & wellness · DOAC: physical health'},
-
-      {e:'26 Mar', n:'Purple Day — Epilepsy Awareness',
-       c:'awareness', src:'Epilepsy Society',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health/wellness · WNT: mental health · DOAC: neuroscience'},
-
-      {e:'28 Mar', n:'World Bipolar Day',
-       c:'awareness', src:'Mental Health UK',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health · BA: brain health/resilience · DOAC: neuroscience/psychology'},
-
-      {e:'31 Mar', n:'Trans Day of Visibility',
-       c:'awareness', src:'nationaltoday.com',
-       s:['WNT','BA','HSR'],
-       w:'WNT: identity/relationships · BA: life story/resilience — resonates with BA\'s female audience · HSR: power/culture'},
-
-      {e:'Mar', n:"Women's History Month",
-       c:'theme', src:'UN / Brandwatch',
-       s:['HSR','BA','WNT','DOAC'],
-       w:"HSR: core mission · BA: resilience/life story — celebrating women's journeys · WNT: empowerment/status · DOAC: power/authority"},
-
-      {e:'Mar', n:'Endometriosis Awareness Month',
-       c:'theme', src:'Endometriosis UK',
-       s:['BA','WNT','DOAC'],
-       w:'BA: health/midlife · WNT: physical health/relationships · DOAC: fertility/hormones'},
-
-      {e:'Mar', n:'Brain Awareness Week (mid-Mar)',
-       c:'awareness', src:'Dana Foundation',
-       s:['DOAC','BA','WNT','TL'],
-       w:'DOAC: neuroscience · BA: brain health · WNT: neuroscience/mental health · TL: cognitive performance'},
-
-      {e:'20 Mar', n:'Project Hail Mary — Ryan Gosling',
-       c:'film', src:'Hollywood Reporter',
-       s:['TL'],
-       w:'DOAC: AI/science/psychology · TL: human performance/science'},
-
-      {e:'6 Mar', n:'The Bride! — Maggie Gyllenhaal',
-       c:'film', src:'Hollywood Reporter / RottenTomatoes',
-       s:[],
-       w:''},
-
-      {e:'27 Mar', n:'Peaky Blinders: The Immortal Man',
-       c:'film', src:'IMDb / cinemablend',
-       s:['DOAC'],
-       w:'DOAC: power/authority'},
-
-      // ── RETAIL ──
-      {e:'22 Mar', n:"Mother's Day UK — Gifting Peak",
-       c:'retail', src:'Retail Economics / Mintel',
-       s:['BA','WNT','DOAC'],
-       w:"BA: wellness/midlife gifting window — peak · WNT: relationship/family products · DOAC: books/courses as gifts"},
-
-      {e:'8 Mar', n:"IWD — Female Brand Sponsorship Peak",
-       c:'retail', src:'IAB / Brandwatch',
-       s:['HSR','BA','WNT'],
-       w:"HSR: female-founder brand deals — highest demand of year · BA: women's wellness brands · WNT: relationship/empowerment brands"},
-
-      {e:'Mar', n:"Spring Fitness Season — Performance Product Push",
-       c:'retail', src:'Mintel / GWI',
-       s:['TL','DOAC','BA'],
-       w:'TL: WHOOP/performance gear — spring fitness spike · DOAC: supplements/fitness products · BA: wellness products'},
-
-      {e:'24 Mar', n:"Equal Pay Day (US) — Women's Earnings Awareness",
-       c:'awareness', src:'AAUW / nationalwomenslaw.org',
-       s:['HSR','WNT'],
-       w:'HSR: female entrepreneurship/wealth gap · WNT: status/equality'},
-
-      {e:'Mar', n:"Women's History Month — Female Brand Partnerships",
-       c:'retail', src:'IAB / Nielsen',
-       s:['HSR','BA','WNT'],
-       w:"HSR: female-founder brand deals peak · BA: women's wellness brands · WNT: empowerment/relationship brands"},
-    ]
-  },
-
-  apr:{
-    label:'April',
-    themes:['Stress Awareness Month','Earth Month','Autism Acceptance Month','Sexual Assault Awareness Month (US)'],
-    events:[
-      {e:'2 Apr', n:'World Autism Acceptance Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health/parenting · WNT: mental health/life story · DOAC: neuroscience'},
-
-      {e:'3 Apr', n:'Good Friday',
-       c:'awareness', src:'national calendars',
-       s:['DOAC','BA'],
-       w:'DOAC: religion · BA: life story/community'},
-
-      {e:'6 Apr', n:"Int'l Day of Sport for Development & Peace — UN",
-       c:'sports', src:'UN.org',
-       s:['TL','DOAC'],
-       w:'TL: sport/performance · DOAC: sports science'},
-
-      {e:'7 Apr', n:'World Health Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'DOAC: physical health · BA: health & wellness · WNT: mental health · TL: human performance · HSR: wellbeing'},
-
-      {e:'9 Apr', n:'Masters Golf — Augusta, Georgia',
-       c:'sports', src:'Olympics.com', sp:'9–12 Apr',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset · DOAC: sports science/psychology'},
-
-      {e:'10 Apr', n:'The Super Mario Galaxy Movie',
-       c:'film', src:'Movie Insider / IMDb',
-       s:[],
-       w:''},
-
-            {e:'18 Apr', n:'NBA Playoffs begin',
-       c:'sports', src:'NBA.com', sp:'18 Apr – mid-Jun',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset — NBA playoffs are peak human performance under pressure · DOAC: sports science/psychology of winning'},
-
-      {e:'18 Apr', n:'NHL Stanley Cup Playoffs begin',
-       c:'sports', src:'NHL.com', sp:'18 Apr – late Jun',
-       s:['TL','DOAC'],
-       w:'TL: elite endurance/performance — gruelling 4-round playoff format · DOAC: sports psychology/physical conditioning'},
-
-      {e:'23 Apr', n:'NFL Draft — Pittsburgh',
-       c:'sports', src:'NFL.com', sp:'23–25 Apr',
-       s:['TL','DOAC'],
-       w:'TL: talent identification/human performance science — the NFL Combine and Draft are about measurable athleticism · DOAC: business of sport/power'},
-
-{e:'19 Apr', n:'Coachella Music Festival — Weekend 1',
-       c:'music', src:'Coachella.com', sp:'19–21 Apr',
-       s:[],
-       w:''},
-
-      {e:'20 Apr', n:'Boston Marathon',
-       c:'sports', src:'Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: endurance/elite performance · DOAC: sports science/exercise'},
-
-      {e:'22 Apr', n:'Earth Day / International Mother Earth Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','TL'],
-       w:'BA: health & wellness · TL: nutrition/environment/performance'},
-
-      {e:'23 Apr', n:'World Book Day — UNESCO',
-       c:'awareness', src:'UNESCO',
-       s:['BA','WNT','HSR'],
-       w:'BA: life story · WNT: life story · DOAC: business/psychology books · HSR: business/wealth books'},
-
-      {e:'24 Apr', n:'A Minecraft Movie',
-       c:'film', src:'IMDb',
-       s:[],
-       w:''},
-
-      {e:'26 Apr', n:'London Marathon',
-       c:'sports', src:'BBC Sport',
-       s:['TL','DOAC','BA'],
-       w:'TL: endurance performance — one of the six World Marathon Majors, globally recognised · DOAC: exercise/sports science · BA: resilience/physical wellness'},
-
-      {e:'26 Apr', n:'Coachella — Weekend 2',
-       c:'music', src:'Coachella.com', sp:'26–28 Apr',
-       s:[],
-       w:''},
-
-      {e:'29 Apr', n:'Olivia Dean — The Art of Loving Live Tour',
-       c:'music', src:'Ticketmaster UK', sp:'29 Apr – 12 Jun · The O2, London',
-       s:['WNT','BA'],
-       w:'WNT: love/relationships/emotional storytelling · BA: resilience/life story'},
-
-      {e:'Apr', n:'Laufey — A Matter of Time Tour',
-       c:'music', src:'Ticketmaster UK / SeatPick', sp:'Spring 2026 · Manchester & London',
-       s:['WNT','BA'],
-       w:'WNT: love/emotional complexity/relationships — jazz-pop storytelling · BA: life story/emotional depth'},
-
-      {e:'30 Apr', n:'International Jazz Day — UNESCO',
-       c:'music', src:'UNESCO',
-       s:[],
-       w:''},
-
-      {e:'Apr', n:'Stress Awareness Month',
-       c:'theme', src:'Stress Management Society',
-       s:['DOAC','BA','WNT','TL'],
-       w:'DOAC: psychology/neuroscience · BA: resilience/brain health · WNT: mental health · TL: performance under pressure'},
-
-      {e:'Apr', n:'Autism Acceptance Month',
-       c:'theme', src:'Autism.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health/parenting · WNT: mental health/life story · DOAC: neuroscience'},
-
-      {e:'Apr', n:'Sexual Assault Awareness Month (US)',
-       c:'awareness', src:'RAINN.org',
-       s:['WNT','BA','HSR'],
-       w:'WNT: trauma/relationships · BA: grief & trauma/resilience · HSR: power/safety'},
-
-      // ── RETAIL ──
-      {e:'3 Apr', n:"Easter Gifting Window",
-       c:'retail', src:'Retail Economics',
-       s:['BA','WNT'],
-       w:'BA: wellness/self-care gifting · DOAC: books/courses · WNT: relationship gifts/experiences'},
-
-      {e:'Apr', n:"Marathon Season — Sports & Nutrition Brand Window",
-       c:'retail', src:'Mintel / Running USA',
-       s:['TL','DOAC'],
-       w:'TL: WHOOP/nutrition/running gear — major acquisition window · DOAC: sports supplements'},
-
-      {e:'Apr', n:"Spring Campaign Season — Q2 Advertiser Ramp",
-       c:'retail', src:'IAB / Nielsen',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: Q2 brand budgets activate — strong window for new partnerships across all show categories'},
-    ]
-  },
-
-  may:{
-    label:'May',
-    themes:['Mental Health Awareness Month (US)','Maternal Mental Health Month','Asian Heritage Month (Canada)'],
-    events:[
-      {e:'1 May', n:"International Workers' Day / May Day — UN",
-       c:'awareness', src:'UN.org / ILO',
-       s:['HSR'],
-       w:'HSR: business/power · DOAC: business/authority'},
-
-      {e:'4 May', n:'Met Gala — Metropolitan Museum, New York',
-       c:'industry', src:'Vogue / Billboard',
-       s:[],
-       w:''},
-
-            {e:'16 May', n:'Kentucky Derby — Churchill Downs, Louisville',
-       c:'sports', src:'KentuckyDerby.com / Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite athletic performance — the physiological demands on horse and jockey are extraordinary · DOAC: sports science/exercise/psychology'},
-
-      {e:'27 May', n:'National Reconciliation Week (Australia)',
-       c:'awareness', src:'reconciliation.org.au', sp:'27 May – 3 Jun',
-       s:['BA','WNT'],
-       w:'BA: life story — significant for Australian audience, covering First Nations healing and shared history · WNT: life story/status/cultural identity'},
-
-{e:'11 May', n:'Mental Health Awareness Week (UK) — MHF',
-       c:'awareness', src:'mentalhealth.org.uk', sp:'11–17 May',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: psychology · BA: brain health/resilience · WNT: mental health (core)'},
-
-      {e:'13 May', n:'The Great Escape Festival — Brighton',
-       c:'music', src:'NME / Ticketmaster', sp:'13–16 May',
-       s:[],
-       w:''},
-
-      {e:'15 May', n:'International Day of Families — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: parenting/midlife · WNT: relationships/love · DOAC: psychology/relationships'},
-
-      {e:'17 May', n:"IDAHOBIT — Int'l Day Against LGBTQ+ Discrimination",
-       c:'awareness', src:'ILGA / nationaltoday.com',
-       s:['WNT','HSR'],
-       w:'WNT: identity/relationships · HSR: power/culture'},
-
-      {e:'19 May', n:'Cannes Film Festival — Opening',
-       c:'industry', src:'festival-cannes.com', sp:'19–30 May',
-       s:['DOAC'],
-       w:'DOAC: business of the entertainment/film industry'},
-
-      {e:'22 May', n:'Mortal Kombat II',
-       c:'film', src:'RottenTomatoes',
-       s:['DOAC'],
-       w:'DOAC: psychology/power — competitive psychology and the will to win'},
-
-      {e:'22 May', n:'The Mandalorian & Grogu — Star Wars',
-       c:'film', src:'Hollywood Reporter',
-       s:[],
-       w:''},
-
-      {e:'22 May', n:"Int'l Day to End Obstetric Fistula — UN",
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:"BA: health & wellness/women's health · WNT: women's wellbeing/trauma"},
-
-      {e:'25 May', n:'French Open Tennis begins',
-       c:'sports', src:'Olympics.com', sp:'25 May – 7 Jun',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports science/psychology of winning'},
-
-      {e:'31 May', n:'World No-Tobacco Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','WNT','DOAC','TL'],
-       w:'BA: addiction/health · WNT: addiction · DOAC: physical health · TL: performance/health'},
-
-      {e:'May', n:'Mental Health Awareness Month (US)',
-       c:'theme', src:'NAMI / Brandwatch',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: mental health touches every podcast topic from performance to relationships to entrepreneurship'},
-
-      {e:'May', n:'Maternal Mental Health Month',
-       c:'awareness', src:'MMHA',
-       s:['BA','WNT'],
-       w:'BA: parenting/midlife/health · WNT: mental health/relationships'},
-
-      // ── RETAIL ──
-      {e:'11 May', n:"Mental Health Awareness Week — Wellness Brand Peak",
-       c:'retail', src:'IAB / Mintel', sp:'11–17 May',
-       s:['DOAC','BA','WNT','TL'],
-       w:'DOAC: psychology/self-help products · BA: wellness/brain health brands · WNT: mental health products/apps · TL: mindset/performance apps'},
-
-      {e:'10 May', n:"Mother's Day (US) — Gifting Peak",
-       c:'retail', src:'NRF / Retail Economics',
-       s:['HSR','BA','WNT','DOAC'],
-       w:"HSR: US gifting peak — female consumer brands · BA: wellness/midlife products · WNT: relationship/family gifts · DOAC: books/courses"},
-
-      {e:'May', n:"National Small Business Week (US)",
-       c:'awareness', src:'SBA.gov / US Small Business Administration', sp:'Early May',
-       s:['HSR','DOAC'],
-       w:"HSR: female entrepreneurship/capital/ambition — the SBA's annual celebration of small business owners is core HSR territory · DOAC: business/power"},
-
-      {e:'May', n:"US Memorial Day Sales Weekend",
-       c:'retail', src:'Retail Economics / NRF',
-       s:['HSR','DOAC','TL'],
-       w:'HSR: US market — peak shopping event for female consumer brands · DOAC: US market push · TL: US sports/performance brands'},
-
-      {e:'May', n:"Cannes Lions — Brand Partnership Pitching Season",
-       c:'retail', src:'Cannes Lions / IAB',
-       s:['HSR','DOAC'],
-       w:'HSR: brand deal season peak · DOAC: major brand sponsorship conversations — Cannes Lions advertising festival'},
-    ]
-  },
-
-  jun:{
-    label:'June',
-    themes:["Pride Month (Global)",'Men\'s Mental Health Month',"Alzheimer's & Brain Awareness Month"],
-    events:[
-            {e:'3 Jun', n:'NBA Finals 2026 — Game 1',
-       c:'sports', src:'NBA.com / ESPN', sp:'3–19 Jun',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset — peak of the NBA season, psychology of winning under maximum pressure · DOAC: sports psychology/business of sport'},
-
-      {e:'4 Jun', n:'NHL Stanley Cup Finals begin',
-       c:'sports', src:'NHL.com / ESPN', sp:'4–21 Jun',
-       s:['TL','DOAC'],
-       w:'TL: elite endurance performance — the toughest trophy in pro sport to win · DOAC: sports science/physical health'},
-
-{e:'1 Jun', n:'Pride Month Begins (Global)',
-       c:'awareness', src:'nationaltoday.com / Brandwatch',
-       s:['WNT','BA','HSR'],
-       w:'WNT: relationships/identity/love · BA: life story/resilience — key cultural moment for BA\'s audience · HSR: power/culture'},
-
-      {e:'1 Jun', n:'Global Day of Parents — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: parenting · WNT: relationships/family'},
-
-      {e:'5 Jun', n:'Toy Story 5 — Pixar/Disney',
-       c:'film', src:'Hollywood Reporter',
-       s:['BA','DOAC'],
-       w:'BA: parenting/life story'},
-
-      {e:'5 Jun', n:'World Environment Day — UNEP',
-       c:'awareness', src:'UN.org / UNEP',
-       s:['BA','TL'],
-       w:'BA: wellness/life values · TL: nutrition/environment/performance'},
-
-      {e:'6 Jun', n:"Download Festival — Donington Park",
-       c:'music', src:'NME / Ticketmaster', sp:'6–8 Jun · Linkin Park, Guns N\' Roses, Limp Bizkit',
-       s:['BA'],
-       w:'BA: resilience/life story — Linkin Park\'s return after Chester Bennington carries significant grief and mental health resonance'},
-
-      {e:'8 Jun', n:"Men's Health Week",
-       c:'awareness', src:'menshealthforum.org.uk', sp:'8–14 Jun',
-       s:['DOAC','WNT','TL'],
-       w:'DOAC: physical health/psychology · WNT: mental health/relationships · TL: human performance'},
-
-      {e:'11 Jun', n:'FIFA World Cup 2026 Kicks Off',
-       c:'sports', src:'FIFA.com', sp:'11 Jun – 19 Jul · USA/Canada/Mexico',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports science/psychology'},
-
-      {e:'12 Jun', n:'LIDO Festival — Victoria Park, London',
-       c:'music', src:'Ticketmaster UK', sp:'12–13 Jun',
-       s:[],
-       w:''},
-
-      {e:'13 Jun', n:'Isle of Wight Festival',
-       c:'music', src:'NME / Ticketmaster', sp:'13–15 Jun · Lewis Capaldi, Calvin Harris, The Cure',
-       s:['BA'],
-       w:'BA: resilience themes (Lewis Capaldi comeback story)'},
-
-      {e:'18 Jun', n:'Lewis Capaldi — UK & Ireland Tour',
-       c:'music', src:'Ticketmaster UK', sp:'18 Jun – 22 Aug · BST Hyde Park, arenas + festivals',
-       s:['BA','WNT'],
-       w:'BA: mental health/resilience/life story — his public journey with Tourette\'s and burnout is core Begin Again territory · WNT: grief/relationships/emotional life story'},
-
-      {e:'27 Jun', n:'Bad Bunny — DeBÍ TiRAR MáS FOToS World Tour',
-       c:'music', src:'Ticketmaster UK', sp:'27–28 Jun · Tottenham Hotspur Stadium',
-       s:['WNT'],
-       w:'WNT: love/relationships/cultural identity — rooted in Latin love and heartbreak'},
-
-      {e:'14 Jun', n:'World Blood Donor Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','DOAC'],
-       w:'BA: health & wellness · DOAC: physical health'},
-
-      {e:'15 Jun', n:'Loneliness Awareness Week (UK)',
-       c:'awareness', src:'MindWell / NHS', sp:'15–21 Jun',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health/relationships · BA: resilience/brain health · DOAC: psychology/neuroscience'},
-
-      {e:'19 Jun', n:"Int'l Day for Elimination of Sexual Violence in Conflict — UN",
-       c:'awareness', src:'UN.org',
-       s:['WNT','BA','HSR'],
-       w:'WNT: trauma/abuse · BA: grief & trauma/resilience · HSR: power/safety'},
-
-      {e:'19 Jun', n:'Disclosure Day — Steven Spielberg',
-       c:'film', src:'cinemablend',
-       s:['DOAC'],
-       w:'DOAC: AI/authority/power'},
-
-      {e:'20 Jun', n:'World Refugee Day — UN',
-       c:'awareness', src:'UN.org / UNHCR',
-       s:['BA','WNT'],
-       w:'BA: life story/resilience · WNT: life story/trauma'},
-
-      {e:'21 Jun', n:"Father's Day (UK & US)",
-       c:'awareness', src:'daysoftheyear.com',
-       s:['DOAC','WNT','BA'],
-       w:'DOAC: relationships/psychology · WNT: relationships/life story · BA: parenting/life story'},
-
-      {e:'21 Jun', n:'International Day of Yoga — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','TL','DOAC'],
-       w:'BA: health & wellness · TL: physical performance/mindset · DOAC: exercise/physical health'},
-
-      {e:'21 Jun', n:'World Music Day (Fête de la Musique)',
-       c:'music', src:'UNESCO / daysoftheyear.com',
-       s:['DOAC'],
-       w:'DOAC: culture/creativity'},
-
-      {e:'19 Jun', n:'Supergirl — Milly Alcock, DC',
-       c:'film', src:'cinemablend',
-       s:[],
-       w:''},
-
-      {e:'26 Jun', n:"Masters of the Universe",
-       c:'film', src:'Hollywood Reporter',
-       s:['DOAC'],
-       w:'DOAC: power/authority — the entire premise of the film centres on power structures and authority'},
-
-      {e:'19 Jun', n:"Juneteenth — US National Holiday",
-       c:'awareness', src:'US Federal Calendar / Brandwatch',
-       s:['HSR','WNT'],
-       w:"HSR: power/culture/Black female entrepreneurship · WNT: life story/status"},
-
-      {e:'26 Jun', n:"Int'l Day Against Drug Abuse & Trafficking — UN",
-       c:'awareness', src:'UN.org',
-       s:['WNT','BA'],
-       w:'WNT: addiction · BA: addiction'},
-
-      {e:'29 Jun', n:'Wimbledon Begins',
-       c:'sports', src:'BBC Sport / Olympics.com', sp:'29 Jun – 12 Jul',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset · DOAC: sports psychology/sports science'},
-
-      {e:'Jun', n:"Men's Mental Health Month",
-       c:'theme', src:'menshealthforum.org.uk',
-       s:['DOAC','WNT','TL'],
-       w:'DOAC: psychology/physical health · WNT: mental health · TL: performance mindset'},
-
-      {e:'Jun', n:"Alzheimer's & Brain Awareness Month",
-       c:'theme', src:'Alzheimers.org',
-       s:['BA','WNT','DOAC','TL'],
-       w:'BA: brain health — directly relevant to the show\'s brain health focus · WNT: mental health/life story · DOAC: neuroscience · TL: cognitive performance'},
-
-      {e:'Jun', n:'Tony Awards (New York)',
-       c:'industry', src:'TonyAwards.com',
-       s:['DOAC'],
-       w:'DOAC: business of entertainment'},
-
-      // ── RETAIL ──
-      {e:'21 Jun', n:"Father's Day UK — Gifting Peak",
-       c:'retail', src:'Retail Economics / Mintel',
-       s:['DOAC','WNT','TL'],
-       w:"DOAC: books/courses as gifts — strong Father's Day angle · WNT: relationship/family experiences · TL: performance gear/WHOOP gifting"},
-
-      {e:'11 Jun', n:"World Cup — Sports Brand Activation Window",
-       c:'retail', src:'FIFA / IAB', sp:'11 Jun – 19 Jul',
-       s:['TL','DOAC'],
-       w:'TL: performance/sport brand deals — biggest sports window of 2026 · DOAC: sports psychology/business angle'},
-
-      {e:'Jun', n:"Pride Month — LGBTQ+ Brand Partnership Window",
-       c:'retail', src:'IAB / Brandwatch',
-       s:['WNT','BA','HSR'],
-       w:'WNT: LGBTQ+ dating/relationship brands · BA: inclusive wellness brands · HSR: female/LGBTQ+ brand partners — brands increase spend significantly'},
-
-      {e:'Jun', n:"Mid-Year Sales — UK Retail Event",
-       c:'retail', src:'Retail Economics',
-       s:['DOAC','BA','TL'],
-       w:'DOAC: courses/books promotion · BA: wellness products · TL: WHOOP/performance gear'},
-    ]
-  },
-
-  jul:{
-    label:'July',
-    themes:['Disability Pride Month (Global)','Minority Mental Health Month (US)'],
-    events:[
-            {e:'5 Jul', n:'NAIDOC Week (Australia)',
-       c:'awareness', src:'naidoc.org.au', sp:'5–12 Jul',
-       s:['BA','WNT'],
-       w:'BA: life story — one of the most significant cultural weeks for BA\'s Australian audience · WNT: life story/cultural identity/status'},
-
-{e:'4 Jul', n:'Independence Day (US)',
-       c:'awareness', src:'national calendars',
-       s:['HSR'],
-       w:'HSR: US market moment — key date for HSR\'s American audience and brand partnerships'},
-
-      {e:'4 Jul', n:'Tour de France Begins — Barcelona',
-       c:'sports', src:'Olympics.com', sp:'4–26 Jul',
-       s:['TL','DOAC'],
-       w:'TL: elite endurance performance · DOAC: sports science/exercise'},
-
-      {e:'4 Jul', n:'My Chemical Romance — UK Stadium Tour',
-       c:'music', src:'Ticketmaster UK', sp:'Liverpool, Glasgow, Wembley ×3',
-       s:['BA','WNT'],
-       w:'BA: grief & trauma/resilience/emotional intensity — their work runs through loss and identity · WNT: mental health/life story'},
-
-      {e:'11 Jul', n:'World Population Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['HSR'],
-       w:'DOAC: power/authority/society · HSR: business/culture/society'},
-
-      {e:'12 Jul', n:'Wimbledon Finals',
-       c:'sports', src:'BBC Sport / Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset · DOAC: psychology of winning'},
-
-      {e:'14 Jul', n:'MLB All-Star Game — Philadelphia',
-       c:'sports', src:'Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite sport · DOAC: sports science'},
-
-      {e:'18 Jul', n:'Nelson Mandela International Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['HSR','WNT','DOAC'],
-       w:'HSR: power/cultural icon · WNT: life story/resilience · DOAC: power/authority'},
-
-      {e:'19 Jul', n:'FIFA World Cup Final — MetLife Stadium, New York',
-       c:'sports', src:'FIFA.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports psychology/business of sport'},
-
-      {e:'21 Jul', n:'TRNSMT Festival — Glasgow Green',
-       c:'music', src:'Ticketmaster UK', sp:'21–23 Jul',
-       s:[],
-       w:''},
-
-      {e:'23 Jul', n:'Commonwealth Games Opens — Glasgow',
-       c:'sports', src:'Olympics.com', sp:'23 Jul – 2 Aug',
-       s:['TL','DOAC'],
-       w:'TL: elite athletes/human performance · DOAC: sports science'},
-
-      {e:'23 Jul', n:'WOMAD World Music Festival — Neston Park',
-       c:'music', src:'NME / Ticketmaster', sp:'23–26 Jul',
-       s:['BA'],
-       w:'BA: life story/global culture'},
-
-      {e:'28 Jul', n:'World Hepatitis Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','DOAC'],
-       w:'BA: health & wellness · DOAC: physical health'},
-
-      {e:'30 Jul', n:'World Day Against Trafficking in Persons — UN',
-       c:'awareness', src:'UN.org',
-       s:['WNT','BA','HSR'],
-       w:'WNT: trauma/abuse · BA: grief & trauma/resilience · HSR: power/safety/women'},
-
-      {e:'Jul', n:'Disability Pride Month',
-       c:'theme', src:'nationaltoday.com',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health/resilience · WNT: mental health/life story · DOAC: neuroscience/psychology'},
-
-      {e:'Jul', n:'Minority Mental Health Month (US)',
-       c:'theme', src:'NAMI / Brandwatch',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health · BA: brain health/resilience · DOAC: psychology/neuroscience'},
-
-      {e:'Jul', n:'BST Hyde Park Concerts — London',
-       c:'music', src:'Ticketmaster UK',
-       s:[],
-       w:''},
-
-      // ── RETAIL ──
-      {e:'14 Jul', n:"Amazon Prime Day — All-Show Product Push",
-       c:'retail', src:'Amazon / Retail Economics',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: major e-commerce window — books, courses, wellness, performance gear, investing tools all spike on Prime Day'},
-
-      {e:'19 Jul', n:"World Cup Final — Peak Sports Brand Spend",
-       c:'retail', src:'FIFA / IAB',
-       s:['TL','DOAC'],
-       w:'TL: sports/performance brand deals climax · DOAC: sports psychology/business of sport brand window'},
-
-      {e:'Jul', n:"Summer Sales — UK Peak Retail",
-       c:'retail', src:'Retail Economics / BRC',
-       s:['BA','TL','DOAC'],
-       w:'BA: wellness/fitness products · TL: performance gear · DOAC: courses/books'},
-    ]
-  },
-
-  aug:{
-    label:'August',
-    themes:['Black Business Month (US)','Edinburgh Festival Month','Psoriasis Awareness Month'],
-    events:[
-      {e:'1 Aug', n:'World Breastfeeding Week — WHO',
-       c:'awareness', src:'WHO / UN.org', sp:'1–7 Aug',
-       s:['BA','WNT'],
-       w:"BA: parenting/women's health · WNT: relationships/women's wellbeing"},
-
-      {e:'7 Aug', n:'Edinburgh Fringe Festival Begins',
-       c:'industry', src:'edfringe.com', sp:'7–31 Aug',
-       s:['DOAC'],
-       w:'DOAC: business of entertainment/creativity — largest arts industry event in the world'},
-
-      {e:'14 Aug', n:'The Weeknd — After Hours til Dawn Tour · Wembley Stadium',
-       c:'music', src:'Ticketmaster UK', sp:'14–19 Aug · 5 nights, Wembley Stadium',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: addiction/toxic relationships/heartbreak/mental health — themes run through all three albums · BA: addiction/grief & trauma/resilience · DOAC: psychology/physical health'},
-
-      {e:'Aug', n:'Ariana Grande — Eternal Sunshine Tour · The O2, London',
-       c:'music', src:'Ticketmaster UK', sp:'10 nights at The O2, August',
-       s:['WNT','BA'],
-       w:'WNT: grief/relationships/love/trauma survivor · BA: grief & trauma/resilience'},
-
-      {e:'7 Aug', n:'Harry Potter — 25th Anniversary Re-release',
-       c:'film', src:'Movie Insider',
-       s:['BA'],
-       w:'BA: parenting/nostalgia'},
-
-      {e:'26 Aug', n:"Women's Equality Day (US)",
-       c:'awareness', src:'US Congress / womensequality.org',
-       s:['HSR','WNT','BA'],
-       w:"HSR: female empowerment/power · WNT: empowerment/status · BA: life story/resilience — deeply relevant to BA\'s female audience"},
-
-      {e:'9 Aug', n:"International Day of Indigenous Peoples — UN",
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: life story/cultural identity · WNT: life story/status'},
-
-      {e:'12 Aug', n:'International Youth Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT','DOAC','HSR'],
-       w:'BA: parenting · WNT: life story/relationships · HSR: creator economy/next gen'},
-
-      {e:'19 Aug', n:'World Humanitarian Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: activism/life values · WNT: life story/empathy'},
-
-      {e:'21 Aug', n:'Creamfields Festival — 20th Anniversary',
-       c:'music', src:'Ticketmaster UK / NME', sp:'21–23 Aug · Disclosure, Calvin Harris, Underworld',
-       s:[],
-       w:''},
-
-      {e:'27 Aug', n:'Reading & Leeds Festival',
-       c:'music', src:'NME / Ticketmaster', sp:"27–30 Aug · Florence + Machine, Charli XCX, RAYE, Kneecap",
-       s:['BA'],
-       w:'BA: female artists with powerful themes — Florence + Machine, RAYE'},
-
-      {e:'28 Aug', n:'All Points East — Victoria Park, London',
-       c:'music', src:'Ticketmaster UK', sp:'28–30 Aug · Tyler the Creator',
-       s:[],
-       w:'HSR: culture/creator economy'},
-
-      {e:'30 Aug', n:'Notting Hill Carnival — London',
-       c:'music', src:'Ticketmaster / NHS Employers', sp:'30–31 Aug',
-       s:['BA','WNT'],
-       w:'BA: life story/community · WNT: life story/cultural identity'},
-
-      {e:'31 Aug', n:'US Open Tennis Begins',
-       c:'sports', src:'Olympics.com', sp:'31 Aug – 13 Sep',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports science/psychology'},
-
-      {e:'Aug', n:'Black Business Month (US)',
-       c:'theme', src:'BlackBusinessMonth.com',
-       s:['HSR','DOAC'],
-       w:'HSR: business/power/capital · DOAC: business/entrepreneurship'},
-
-      {e:'Aug', n:'Lollapalooza — Chicago',
-       c:'music', src:'toursetlist.com',
-       s:[],
-       w:''},
-
-      // ── RETAIL ──
-      {e:'Aug', n:"Back to School — Productivity & Learning Push",
-       c:'retail', src:'Mintel / Retail Economics',
-       s:['DOAC','TL','HSR'],
-       w:'DOAC: courses/books peak acquisition window · TL: performance/productivity products · HSR: business tools/investing courses'},
-
-      {e:'Aug', n:"End of Summer Sales — Fitness & Wellness",
-       c:'retail', src:'Retail Economics',
-       s:['BA','TL','DOAC'],
-       w:'BA: wellness products promotion · TL: WHOOP/performance gear · DOAC: supplement/fitness products'},
-
-      {e:'27 Aug', n:"Bank Holiday Festival Window — Brand Activations",
-       c:'retail', src:'Retail Economics / IAB',
-       s:[],
-       w:''},
-    ]
-  },
-
-  sep:{
-    label:'September',
-    themes:['World Suicide Prevention Month','Gynaecological Cancer Awareness Month','Healthy Aging Month'],
-    events:[
-            {e:'10 Sep', n:"R U OK? Day (Australia) — National Mental Health Day",
-       c:'awareness', src:'ruok.org.au',
-       s:['WNT','BA','DOAC'],
-       w:"WNT: mental health/relationships — Australia's most prominent mental health awareness moment, focused on conversation and connection · BA: resilience/brain health · DOAC: psychology/neuroscience"},
-
-      {e:'9 Sep', n:'NFL Season Opener — Week 1',
-       c:'sports', src:'NFL.com', sp:'9 Sep – Jan 2027',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/sports science — NFL season launch is the biggest annual US sport moment; peak audience for performance content · DOAC: sports psychology/business of sport'},
-
-{e:'4 Sep', n:'World Sexual Health Day',
-       c:'awareness', src:'WAS / daysoftheyear.com',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: sex/relationships (core) · BA: sex/health · DOAC: sex/relationships/hormones'},
-
-      {e:'8 Sep', n:'International Literacy Day — UNESCO',
-       c:'awareness', src:'UNESCO / UN.org',
-       s:['DOAC','BA','HSR'],
-       w:'DOAC: education/business · BA: life story · HSR: business/ambition'},
-
-      {e:'10 Sep', n:'World Suicide Prevention Day — WHO/UN (also R U OK? Day Australia)',
-       c:'awareness', src:'WHO / UN.org',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health/grief · BA: grief & trauma/resilience · DOAC: psychology/neuroscience'},
-
-      {e:'11 Sep', n:'Practical Magic 2 — Sandra Bullock / Nicole Kidman',
-       c:'film', src:'cinemablend / RottenTomatoes',
-       s:['BA','WNT'],
-       w:'BA: midlife women/resilience · WNT: female relationships'},
-
-      {e:'13 Sep', n:'US Open Tennis Finals',
-       c:'sports', src:'Olympics.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance · DOAC: sports psychology'},
-
-      {e:'15 Sep', n:'International Day of Democracy — UN',
-       c:'awareness', src:'UN.org',
-       s:['HSR','DOAC'],
-       w:'HSR: power/authority · DOAC: power/authority'},
-
-      {e:'21 Sep', n:'International Day of Peace — UN',
-       c:'awareness', src:'UN.org',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: psychology/authority · BA: resilience/life values · WNT: mental health/life story'},
-
-      {e:'21 Sep', n:"World Alzheimer's Day",
-       c:'awareness', src:'Alzheimers Disease International',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health — Alzheimer\'s directly covers brain health and resilience · WNT: grief/life story · DOAC: neuroscience'},
-
-      {e:'21 Sep', n:'International Happiness at Work Week',
-       c:'awareness', src:'mindsahead.org.uk', sp:'21–25 Sep',
-       s:['DOAC','HSR','TL'],
-       w:'DOAC: business/psychology · HSR: business/ambition · TL: performance mindset'},
-
-      {e:'29 Sep', n:'World Heart Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['TL','DOAC','BA'],
-       w:'TL: physical performance/health · DOAC: physical health · BA: health & wellness'},
-
-            {e:'26 Sep', n:'AFL Grand Final — Melbourne',
-       c:'sports', src:'AFL.com.au',
-       s:['TL','BA','WNT'],
-       w:"TL: elite performance — Australia\'s biggest domestic sporting event · BA: resilience/community · WNT: life story/community"},
-
-      {e:'Sep', n:'Suicide Prevention Month',
-       c:'theme', src:'WHO / Mental Health UK',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health/grief · BA: grief & trauma/resilience · DOAC: psychology/neuroscience'},
-
-      {e:'Sep', n:'NY Fashion Week — and global Fashion Month',
-       c:'industry', src:'Vogue / Brandwatch',
-       s:['HSR'],
-       w:"HSR: business of fashion/female power/creator economy — NY Fashion Week is the key event for HSR's US audience"},
-
-      {e:'Sep', n:'Emmy Awards',
-       c:'industry', src:'Emmys.com / Variety',
-       s:['DOAC'],
-       w:'DOAC: business of media'},
-
-      {e:'Sep', n:'Austin City Limits Festival — Texas',
-       c:'music', src:'toursetlist.com',
-       s:[],
-       w:''},
-
-      {e:'Sep', n:'Robyn — The Sexistential Tour · UK Arena Dates',
-       c:'music', src:'Ticketmaster UK',
-       s:['WNT','BA'],
-       w:'WNT: heartbreak/relationships/independence/identity · BA: resilience/life story'},
-
-      // ── RETAIL ──
-      {e:'Sep', n:"Back to Work — Courses, Subscriptions & Self-Improvement Peak",
-       c:'retail', src:'Mintel / GWI',
-       s:['DOAC','TL','HSR','WNT'],
-       w:'DOAC: books/courses — biggest non-January acquisition window · TL: WHOOP/performance subscriptions · HSR: investing tools/courses · WNT: relationship/dating apps peak'},
-
-      {e:'Sep', n:"Q4 Commercial Planning — Brands Finalise Budgets",
-       c:'retail', src:'IAB / Nielsen',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: final window to secure Q4 brand partnerships before budgets close — most lucrative advertising quarter of the year'},
-
-      {e:'Sep', n:"Fashion Week — Female Brand Partnership Window",
-       c:'retail', src:'Vogue / IAB',
-       s:['HSR','BA'],
-       w:'HSR: fashion/female brand deals peak · BA: midlife fashion/wellness brand partnerships'},
-
-      {e:'11 Sep', n:'Clayface — DC Universe',
-       c:'film', src:'RottenTomatoes',
-       s:[],
-       w:''},
-    ]
-  },
-
-  oct:{
-    label:'October',
-    themes:['Black History Month (UK)','Breast Cancer Awareness Month','World Mental Health Month','ADHD Awareness Month'],
-    events:[
-            {e:'Oct', n:'MLB World Series',
-       c:'sports', src:'MLB.com / ESPN', sp:'Late October',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mental conditioning — the World Series is the pinnacle of 162-game endurance and clutch performance · DOAC: sports psychology/business of sport'},
-
-      {e:'Oct', n:"Mental Health Month (Australia)",
-       c:'theme', src:'mentalhealth.org.au / MHFA Australia',
-       s:['WNT','BA','DOAC'],
-       w:"WNT: mental health — significant for BA and WNT's Australian audience, separate to UK/US awareness weeks · BA: brain health/resilience · DOAC: psychology/neuroscience"},
-
-{e:'1 Oct', n:'International Day of Older Persons — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: midlife/resilience · WNT: life story/relationships · DOAC: physical health/psychology'},
-
-      {e:'2 Oct', n:'Verity — Colleen Hoover adaptation',
-       c:'film', src:'Movie Insider / cinemablend',
-       s:['WNT','BA'],
-       w:'WNT: relationships/trauma · BA: life story/relationships'},
-
-      {e:'5 Oct', n:"World Teachers' Day — UNESCO/ILO",
-       c:'awareness', src:'UNESCO / UN.org',
-       s:['DOAC','BA','TL'],
-       w:'DOAC: authority/education · BA: life story/resilience · TL: coaching/mentorship'},
-
-      {e:'10 Oct', n:'World Mental Health Day — WHO',
-       c:'awareness', src:'WHO / UN.org',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'DOAC: psychology/neuroscience · BA: brain health/resilience · WNT: mental health (core) · TL: performance mindset · HSR: wellbeing/ambition'},
-
-      {e:'11 Oct', n:'International Day of the Girl — UN',
-       c:'awareness', src:'UN.org',
-       s:['HSR','WNT','BA'],
-       w:'HSR: female empowerment (core) · WNT: identity/empowerment · BA: parenting/life story — resonates with BA\'s audience of mothers and women'},
-
-      {e:'12 Oct', n:'OCD Awareness Week (UK)',
-       c:'awareness', src:'OCD UK / mindsahead.org.uk', sp:'12–18 Oct',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health · BA: brain health/resilience · DOAC: neuroscience/psychology'},
-
-      {e:'16 Oct', n:'World Food Day — FAO/UN',
-       c:'awareness', src:'UN.org / FAO',
-       s:['TL','DOAC','BA'],
-       w:'TL: nutrition/performance · DOAC: physical health · BA: health & wellness'},
-
-      {e:'17 Oct', n:"Int'l Day for Eradication of Poverty — UN",
-       c:'awareness', src:'UN.org',
-       s:['HSR','WNT'],
-       w:'HSR: wealth/power/inequality · WNT: status/life story'},
-
-      {e:'20 Oct', n:'World Osteoporosis Day',
-       c:'awareness', src:'IOF / daysoftheyear.com',
-       s:['BA','TL'],
-       w:"BA: women's health/midlife · TL: physical performance/bone health"},
-
-      {e:'29 Oct', n:'World Stroke Day',
-       c:'awareness', src:'WSO / daysoftheyear.com',
-       s:['BA','DOAC','TL'],
-       w:'BA: brain health · DOAC: neuroscience · TL: human performance/health'},
-
-      {e:'31 Oct', n:'Halloween',
-       c:'awareness', src:'daysoftheyear.com',
-       s:[],
-       w:''},
-
-      {e:'Oct', n:"National Women's Small Business Month (US)",
-       c:'theme', src:'SBA.gov / NAWBO',
-       s:['HSR','DOAC'],
-       w:"HSR: female entrepreneurship/capital/ambition — declared annually by the US SBA; the single most relevant awareness month for HSR's entire mission · DOAC: business/power"},
-
-      {e:'Oct', n:'Black History Month (UK)',
-       c:'theme', src:'Black History Month UK',
-       s:['WNT','DOAC'],
-       w:'WNT: life story/status · DOAC: business/culture'},
-
-      {e:'Oct', n:'Breast Cancer Awareness Month',
-       c:'theme', src:'Breast Cancer Now / WHO',
-       s:['BA','WNT','HSR','DOAC'],
-       w:"BA: health & wellness/women\'s health — one of the most significant health awareness months for BA\'s audience · WNT: grief/life story · HSR: women\'s empowerment · DOAC: physical health/hormones"},
-
-      {e:'Oct', n:'ADHD Awareness Month',
-       c:'theme', src:'CHADD / ADHD UK',
-       s:['DOAC','BA','WNT','TL'],
-       w:'DOAC: neuroscience · BA: brain health · WNT: mental health · TL: cognitive performance'},
-
-      {e:'Oct', n:'Austin City Limits Festival — Weekend 2',
-       c:'music', src:'toursetlist.com',
-       s:[],
-       w:''},
-
-      {e:'Oct', n:'Arlo Parks — DESIRE TOUR · UK Dates',
-       c:'music', src:'Ticketmaster UK', sp:'Glasgow, Bristol, Manchester, London',
-       s:['WNT','BA'],
-       w:'WNT: LGBTQ+ identity/relationships/mental health/life story · BA: grief & trauma/resilience'},
-
-      // ── RETAIL ──
-      {e:'18 Oct', n:"World Menopause Day — Women's Health Product Window",
-       c:'retail', src:'Menopause Charity / Mintel',
-       s:['BA','DOAC','WNT'],
-       w:"BA: midlife/women's health products — peak relevance · DOAC: hormones/fertility products · WNT: midlife relationship products"},
-
-      {e:'Oct', n:"Breast Cancer Awareness — Cause-Led Brand Partnerships",
-       c:'retail', src:'Breast Cancer Now / IAB',
-       s:['BA','WNT','HSR'],
-       w:"BA: women's health brand partnerships · WNT: female wellness brands · HSR: female empowerment brand deals — pink October campaign window"},
-
-      {e:'Oct', n:"Pre-Christmas Brand Deals — Q4 Peak Begins",
-       c:'retail', src:'IAB / Retail Economics',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: Q4 is the highest CPM quarter — October is last chance to secure premium brand partnerships for Christmas window'},
-
-      {e:'31 Oct', n:"Halloween — Seasonal Product Push",
-       c:'retail', src:'Retail Economics',
-       s:[],
-       w:''},
-    ]
-  },
-
-  nov:{
-    label:'November',
-    themes:["Movember — Men's Health",'Diabetes Awareness Month',"Alzheimer's Awareness Month (US)",'Anti-Bullying Month'],
-    events:[
-      {e:'Nov', n:"National Entrepreneurship Month (US)",
-       c:'theme', src:'SBA.gov / Entrepreneur.com',
-       s:['HSR','DOAC'],
-       w:"HSR: female entrepreneurship/ambition/capital — US government-recognised month celebrating entrepreneurs. Peak content and partnership moment for HSR · DOAC: business/power"},
-
-      {e:'28 Nov', n:"Thanksgiving (US)",
-       c:'awareness', src:'US Federal Calendar',
-       s:['HSR','DOAC'],
-       w:"HSR: US cultural moment — key date for HSR's American audience; major consumer spending begins · DOAC: culture/business"},
-
-      {e:'28 Nov', n:"Small Business Saturday (US)",
-       c:'retail', src:'American Express / SBA.gov',
-       s:['HSR','DOAC'],
-       w:"HSR: female entrepreneurship/capital — Small Business Saturday actively celebrates independent and female-founded businesses. Prime moment for HSR brand partners and community · DOAC: business/power"},
-
-      {e:'1 Nov', n:'Diwali',
-       c:'awareness', src:'daysoftheyear.com',
-       s:['DOAC','BA','WNT'],
-       w:'DOAC: religion/culture · BA: life story/community · WNT: life story/cultural identity'},
-
-      {e:'1 Nov', n:"Movember Begins — Men's Health",
-       c:'awareness', src:'Movember.com',
-       s:['DOAC','WNT','TL'],
-       w:"DOAC: physical health/psychology · WNT: men's mental health/relationships · TL: male performance/health"},
-
-      {e:'4 Nov', n:'National Stress Awareness Day',
-       c:'awareness', src:'ISMA / mindsahead.org.uk',
-       s:['DOAC','WNT','BA'],
-       w:'DOAC: psychology/neuroscience · WNT: mental health · BA: resilience'},
-
-      {e:'6 Nov', n:'The Hunger Games: Sunrise on the Reaping',
-       c:'film', src:'Hollywood Reporter',
-       s:['BA','WNT','DOAC'],
-       w:'BA: resilience/life story · WNT: trauma/power structures · DOAC: power/authority'},
-
-      {e:'13 Nov', n:'Anti-Bullying Week (UK)',
-       c:'awareness', src:'Anti-Bullying Alliance', sp:'13–17 Nov',
-       s:['BA','WNT','DOAC'],
-       w:'BA: resilience/parenting · WNT: mental health/life story · DOAC: psychology/power'},
-
-      {e:'14 Nov', n:'World Diabetes Day — WHO/UN',
-       c:'awareness', src:'WHO / UN.org',
-       s:['BA','TL','DOAC'],
-       w:'BA: health & wellness · TL: human performance/nutrition · DOAC: physical health'},
-
-      {e:'19 Nov', n:"International Men's Day",
-       c:'awareness', src:'internationalmensdayuk.com',
-       s:['DOAC','WNT','TL'],
-       w:"DOAC: psychology/physical health · WNT: men's mental health/relationships · TL: male human performance"},
-
-      {e:'20 Nov', n:"Universal Children's Day — UN",
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: parenting · WNT: life story/relationships'},
-
-      {e:'20 Nov', n:'The Chronicles of Narnia — Netflix',
-       c:'film', src:'Hollywood Reporter',
-       s:['BA','DOAC'],
-       w:'BA: parenting/life story'},
-
-      {e:'20 Nov', n:'Trans Day of Remembrance',
-       c:'awareness', src:'nationaltoday.com',
-       s:['WNT'],
-       w:'WNT: identity/relationships'},
-
-      {e:'25 Nov', n:"Int'l Day to End Violence Against Women — UN",
-       c:'awareness', src:'UN.org',
-       s:['HSR','BA','WNT'],
-       w:'HSR: female safety/empowerment · BA: grief & trauma/resilience · WNT: trauma/relationships'},
-
-      {e:'Nov', n:"Movember — Men's Health Month",
-       c:'theme', src:'Movember.com',
-       s:['DOAC','WNT','TL'],
-       w:"DOAC: physical health/psychology · WNT: men's mental health · TL: male performance health"},
-
-      {e:'Nov', n:'F1 Season Finale',
-       c:'sports', src:'Formula1.com',
-       s:['TL','DOAC'],
-       w:'TL: elite performance/mindset · DOAC: sports psychology/business'},
-
-      {e:'Nov', n:'CMA Country Music Awards',
-       c:'music', src:'CMAworld.com',
-       s:[],
-       w:''},
-
-      {e:'Nov', n:'Myles Smith — My Mess, My Heart, My Life Tour',
-       c:'music', src:'Ticketmaster UK', sp:'UK arena dates, November',
-       s:['WNT','BA'],
-       w:'WNT: heartbreak/love/relationships — raw emotional honesty is the entire premise of his work · BA: resilience/life story/grief'},
-
-      // ── RETAIL ──
-      {e:'27 Nov', n:"Black Friday — Peak Retail Event (UK & US)",
-       c:'retail', src:'Retail Economics / NRF',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: single biggest retail day of the year — books, courses, wellness, WHOOP, investing tools, merch all peak here'},
-
-      {e:'30 Nov', n:"Cyber Monday — Digital Products & Subscriptions Peak",
-       c:'retail', src:'Adobe Analytics / NRF',
-       s:['DOAC','BA','TL','HSR','WNT'],
-       w:'DOAC: courses/digital products · BA: wellness apps/subscriptions · TL: WHOOP subscriptions/digital coaching · HSR: investing courses · WNT: dating/relationship apps'},
-
-      {e:'Nov', n:"Christmas Campaign Season Begins — Q4 Peak",
-       c:'retail', src:'IAB / Retail Economics',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: highest CPM rates of the year — biggest brand partnership and product promotion window. Plan merch/gifting push.'},
-
-      {e:'1 Nov', n:"Movember — Men's Health Product Window",
-       c:'retail', src:'Movember.com / Mintel',
-       s:['DOAC','WNT','TL'],
-       w:"DOAC: men's health/supplement brands · WNT: men's mental health products/apps · TL: male performance gear/WHOOP"},
-    ]
-  },
-
-  dec:{
-    label:'December',
-    themes:['World AIDS Day Month','Human Rights Month','Holiday & Gifting Season'],
-    events:[
-      {e:'1 Dec', n:"Giving Tuesday (US & Global)",
-       c:'awareness', src:'GivingTuesday.org',
-       s:['HSR','BA','WNT'],
-       w:"HSR: female philanthropy/ambition/capital — Giving Tuesday follows Black Friday and drives significant brand purpose activity; HSR's community of female founders and investors is closely aligned with giving culture · BA: life values/community · WNT: life story/empathy"},
-
-      {e:'1 Dec', n:'World AIDS Day — UNAIDS/UN',
-       c:'awareness', src:'UN.org / UNAIDS',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: relationships/sexual health · BA: health & wellness · DOAC: physical health'},
-
-      {e:'3 Dec', n:"Int'l Day of Persons with Disabilities — UN",
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT','DOAC'],
-       w:'BA: brain health/resilience · WNT: mental health/life story · DOAC: neuroscience/psychology'},
-
-      {e:'5 Dec', n:'International Volunteer Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['BA','WNT'],
-       w:'BA: life values/community · WNT: life story/empathy'},
-
-      {e:'10 Dec', n:'Human Rights Day — UN',
-       c:'awareness', src:'UN.org',
-       s:['DOAC','WNT','BA','HSR'],
-       w:'DOAC: power/authority · WNT: status/life story · BA: life story/resilience — broad relevance to BA\'s female audience · HSR: power/culture'},
-
-      {e:'11 Dec', n:'Jumanji 3 — Dwayne Johnson / Kevin Hart',
-       c:'film', src:'IMDb / RottenTomatoes',
-       s:[],
-       w:''},
-
-      {e:'18 Dec', n:'Avengers: Doomsday — Robert Downey Jr.',
-       c:'film', src:'IMDb / RottenTomatoes',
-       s:['DOAC'],
-       w:'DOAC: power/authority themes'},
-
-      {e:'18 Dec', n:"International Migrants Day — UN",
-       c:'awareness', src:'UN.org',
-       s:['WNT','BA'],
-       w:'WNT: life story · BA: life story'},
-
-      {e:'25 Dec', n:'Dune: Part Three — Timothée Chalamet / Zendaya',
-       c:'film', src:'IMDb / Hollywood Reporter',
-       s:['DOAC','BA'],
-       w:'DOAC: power/authority themes · BA: resilience themes'},
-
-      {e:'25 Dec', n:'Christmas Day',
-       c:'awareness', src:'national calendars',
-       s:['BA','DOAC','WNT'],
-       w:'BA: family/parenting · WNT: relationships/family'},
-
-      {e:'Dec', n:'Mental Health at Christmas Campaigns',
-       c:'awareness', src:'Mind / Samaritans',
-       s:['WNT','BA','DOAC'],
-       w:'WNT: mental health · BA: resilience/grief · DOAC: psychology'},
-
-      {e:'Dec', n:'Industry End-of-Year & Spike Awards',
-       c:'industry', src:'Variety',
-       s:['DOAC'],
-       w:'DOAC: business of media'},
-
-      // ── RETAIL ──
-      {e:'Dec', n:"Christmas Gifting Peak — Books, Wellness & Courses",
-       c:'retail', src:'Retail Economics / NRF',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'DOAC: books/courses — biggest gifting window · BA: wellness/self-care products · WNT: relationship/self-help gifts · TL: WHOOP/performance gear gifting · HSR: investing tools/courses'},
-
-      {e:'1 Dec', n:"December Brand Spend Peaks — Final Q4 Push",
-       c:'retail', src:'IAB / Nielsen',
-       s:['DOAC','BA','WNT','TL','HSR'],
-       w:'All shows: highest CPM rates of the year. Premium brand partnerships should be locked in by now. Final push for product promotions before Christmas.'},
-
-      {e:'26 Dec', n:"Boxing Day Sales — UK Retail Event",
-       c:'retail', src:'Retail Economics / BRC',
-       s:['DOAC','BA','TL','HSR'],
-       w:'DOAC: courses/books post-Christmas push · BA: wellness products · TL: WHOOP/performance gear · HSR: investing tools — New Year planning mindset begins'},
-
-      {e:'Dec', n:"New Year Planning — Courses & Self-Improvement Preview",
-       c:'retail', src:'Mintel / GWI',
-       s:['DOAC','TL','HSR','WNT','BA'],
-       w:'All shows: seed January product campaigns in December — audiences begin researching New Year goals in last 2 weeks of December'},
-    ]
-  }
-};
-
-// ── STATE ──
-let activeMonth = 'jan';
-let activeCat = 'all';
-let activeShows = new Set(['DOAC','BA','WNT','TL','HSR']);
-
-// ── MONTH NAV ──
-const monthKeys = Object.keys(CALENDAR);
-const monthNav = document.getElementById('monthNav');
-monthKeys.forEach(key => {
-  const data = CALENDAR[key];
-  const btn = document.createElement('button');
-  btn.className = 'month-btn' + (key === activeMonth ? ' active' : '');
-  btn.dataset.month = key;
-  btn.innerHTML = `${data.label}<span class="evt-count">${data.events.length}</span>`;
-  btn.addEventListener('click', () => {
-    activeMonth = key;
-    activeCat = 'all';
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+let activeMonth='jan',activeCat='all',activeShows=new Set(['DOAC','BA','WNT','TL','HSR']);
+const monthKeys=Object.keys(CALENDAR);
+const monthNav=document.getElementById('monthNav');
+monthKeys.forEach(key=>{
+  const data=CALENDAR[key];
+  const btn=document.createElement('button');
+  btn.className='month-btn'+(key===activeMonth?' active':'');
+  btn.dataset.month=key;
+  btn.innerHTML=`${data.label}<span class="evt-count">${data.events.length}</span>`;
+  btn.addEventListener('click',()=>{
+    activeMonth=key;activeCat='all';
+    document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
     document.querySelector('[data-cat="all"]').classList.add('active');
-    document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
+    document.querySelectorAll('.month-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');render();
   });
   monthNav.appendChild(btn);
 });
-
-// ── SHOW LEGEND ──
-const showLegend = document.getElementById('showLegend');
-Object.entries(SHOWS).forEach(([key, s]) => {
-  const item = document.createElement('div');
-  item.className = 'show-legend-item';
-  item.dataset.show = key;
-  item.innerHTML = `
-    <div class="show-pip" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}55">${s.abbr}</div>
-    <div>
-      <div class="show-legend-name">${s.name}</div>
-      <div class="show-legend-host">${s.host}</div>
-      <div class="show-legend-topics">${s.topics}</div>
-    </div>`;
-  item.addEventListener('click', () => {
-    if (activeShows.has(key)) { if (activeShows.size > 1) activeShows.delete(key); }
-    else activeShows.add(key);
-    document.querySelectorAll('.show-legend-item').forEach(el =>
-      el.classList.toggle('dimmed', !activeShows.has(el.dataset.show)));
+const showLegend=document.getElementById('showLegend');
+Object.entries(SHOWS).forEach(([key,s])=>{
+  const item=document.createElement('div');
+  item.className='show-legend-item';item.dataset.show=key;
+  item.innerHTML=`<div class="show-pip" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}55">${s.abbr}</div><div><div class="show-legend-name">${s.name}</div><div class="show-legend-host">${s.host}</div><div class="show-legend-topics">${s.audience}</div></div>`;
+  item.addEventListener('click',()=>{
+    if(activeShows.has(key)){if(activeShows.size>1)activeShows.delete(key);}else activeShows.add(key);
+    document.querySelectorAll('.show-legend-item').forEach(el=>el.classList.toggle('dimmed',!activeShows.has(el.dataset.show)));
     render();
   });
   showLegend.appendChild(item);
 });
-
-// ── CATEGORY FILTER ──
-document.querySelectorAll('.cat-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    activeCat = btn.dataset.cat;
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
+document.querySelectorAll('.cat-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    activeCat=btn.dataset.cat;
+    document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');render();
   });
 });
-
-// ── RENDER ──
-function render() {
-  const data = CALENDAR[activeMonth];
-  document.getElementById('monthDisplay').innerHTML = `${data.label} <em>2026</em>`;
-  document.getElementById('themesRow').innerHTML = data.themes.map(t =>
-    `<span class="theme-pill">${t}</span>`).join('');
-
-  const filtered = data.events.filter(ev => {
-    const catOk = activeCat === 'all' || ev.c === activeCat;
-    const showOk = ev.s.some(s => activeShows.has(s));
-    return catOk && showOk;
-  });
-
-  document.getElementById('evtCount').textContent = filtered.length;
-  const list = document.getElementById('eventsList');
-  list.innerHTML = '';
-
-  if (!filtered.length) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">◎</div><div class="empty-text">No events match your current filters.</div></div>`;
-    return;
-  }
-
-  const catLabels = {
-    theme:'Monthly Theme', awareness:'Awareness', sports:'Sports',
-    music:'Music', industry:'Industry / Awards', film:'Film Release',
-    retail:'Retail / Commercial'
-  };
-
-  filtered.forEach((ev, i) => {
-    const card = document.createElement('div');
-    card.className = 'event-card';
-    card.style.animationDelay = `${i * 16}ms`;
-
-    const parts = ev.e.split(' ');
-
-    // Build why-tagged text filtered to active shows only
-    let whyText = '';
-    if (ev.w) {
-      whyText = ev.w.split(' · ')
-        .filter(line => {
-          const showMap = {DOAC:'DC',BA:'BA',WNT:'WT',TL:'TL',HSR:'HS'};
-          return Object.entries(showMap).some(([k]) =>
-            activeShows.has(k) && line.toUpperCase().startsWith(k + ':')
-          );
-        }).join(' · ');
-    }
-
-    const showPills = ev.s
-      .filter(s => activeShows.has(s))
-      .map(s => `<div class="show-pill" data-show="${s}" title="${SHOWS[s].name}">${SHOWS[s].abbr}</div>`)
-      .join('');
-
-    card.innerHTML = `
-      <div class="evt-date">
-        <div class="d">${parts[0]}</div>
-        ${parts[1] ? `<div class="m">${parts[1]}</div>` : ''}
-      </div>
-      <div class="evt-sep"></div>
-      <div class="evt-content">
-        <div class="evt-name">${ev.n}</div>
-        <div class="evt-meta">
-          <span class="cat-tag ${ev.c}">${catLabels[ev.c]||ev.c}</span>
-          ${ev.sp ? `<span class="evt-span">· ${ev.sp}</span>` : ''}
-          ${ev.src ? `<span class="evt-source">${ev.src}</span>` : ''}
-        </div>
-        ${whyText ? `<div class="evt-why">↳ ${whyText}</div>` : ''}
-      </div>
-      <div class="evt-shows">${showPills}</div>`;
-
+function render(){
+  const data=CALENDAR[activeMonth];
+  document.getElementById('monthDisplay').innerHTML=`${data.label} <em>2026</em>`;
+  document.getElementById('themesRow').innerHTML=data.themes.map(t=>`<span class="theme-pill">${t}</span>`).join('');
+  const filtered=data.events.filter(ev=>(activeCat==='all'||ev.c===activeCat)&&ev.s.some(s=>activeShows.has(s)));
+  document.getElementById('evtCount').textContent=filtered.length;
+  const list=document.getElementById('eventsList');list.innerHTML='';
+  if(!filtered.length){list.innerHTML=`<div class="empty"><div class="empty-icon">◎</div><div class="empty-text">No events match your current filters.</div></div>`;return;}
+  const catLabels={theme:'Monthly Theme',awareness:'Awareness',sports:'Sports',music:'Music',industry:'Industry / Awards',film:'Film Release',retail:'Retail / Commercial'};
+  filtered.forEach((ev,i)=>{
+    const card=document.createElement('div');
+    card.className='event-card';card.style.animationDelay=`${i*16}ms`;
+    const parts=ev.e.split(' ');
+    const showPills=ev.s.filter(s=>activeShows.has(s)).map(s=>`<div class="show-pill" data-show="${s}" title="${SHOWS[s].name}">${SHOWS[s].abbr}</div>`).join('');
+    card.innerHTML=`<div class="evt-date"><div class="d">${parts[0]}</div>${parts[1]?`<div class="m">${parts[1]}</div>`:''}</div><div class="evt-sep"></div><div class="evt-content"><div class="evt-name">${ev.n}</div><div class="evt-meta"><span class="cat-tag ${ev.c}">${catLabels[ev.c]||ev.c}</span>${ev.sp?`<span class="evt-span">· ${ev.sp}</span>`:''}</div>${ev.w?`<div class="evt-why">↳ ${ev.w}</div>`:''}</div><div class="evt-shows">${showPills}</div>`;
     list.appendChild(card);
   });
 }
-
 render();
-
-// ── MOBILE DRAWER ──
-const sidebar     = document.getElementById('sidebar');
-const overlay     = document.getElementById('sidebarOverlay');
-const menuBtn     = document.getElementById('mobileMenuBtn');
-const mobileMonth = document.getElementById('mobileMonthDisplay');
-
-function openSidebar()  { sidebar.classList.add('open');  overlay.classList.add('active'); }
-function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
-
-if (menuBtn) menuBtn.addEventListener('click', openSidebar);
-if (overlay) overlay.addEventListener('click', closeSidebar);
-
-// Close drawer and update label when a month is tapped on mobile
-document.querySelectorAll('.month-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    closeSidebar();
-    if (mobileMonth) mobileMonth.textContent = CALENDAR[btn.dataset.month].label;
-  });
-});
-
-// Set initial mobile month label
-if (mobileMonth) mobileMonth.textContent = CALENDAR[activeMonth].label;
+const sidebar=document.getElementById('sidebar'),overlay=document.getElementById('sidebarOverlay'),menuBtn=document.getElementById('mobileMenuBtn'),mobileMonth=document.getElementById('mobileMonthDisplay');
+function openSidebar(){sidebar.classList.add('open');overlay.classList.add('active');}
+function closeSidebar(){sidebar.classList.remove('open');overlay.classList.remove('active');}
+if(menuBtn)menuBtn.addEventListener('click',openSidebar);
+if(overlay)overlay.addEventListener('click',closeSidebar);
+document.querySelectorAll('.month-btn').forEach(btn=>{btn.addEventListener('click',()=>{closeSidebar();if(mobileMonth)mobileMonth.textContent=CALENDAR[btn.dataset.month].label;});});
+if(mobileMonth)mobileMonth.textContent=CALENDAR[activeMonth].label;
 </script>
 </body>
 </html>
