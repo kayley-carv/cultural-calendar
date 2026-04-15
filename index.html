@@ -212,6 +212,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 </style>
 </head>
 <body>
+  <script>
+  (function() {
+    var password = "flightstory2026";
+    var input = prompt("Enter password to access this page:");
+    if (input !== password) {
+      document.documentElement.innerHTML = "<h2 style='font-family:sans-serif;padding:40px'>Access denied.</h2>";
+    }
+  })();
+</script>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <div class="app">
 
